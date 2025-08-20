@@ -5,120 +5,7 @@ const navClose = document.getElementById('nav-close');
 const navLinks = document.querySelectorAll('.nav-link');
 const header = document.getElementById('header');
 const contactForm = document.getElementById('contact-form');
-const filterButtons = document.querySelectorAll('.filter-btn');
-const productsGrid = document.getElementById('products-grid');
-
-// Sample products data
-const products = [
-    {
-        id: 1,
-        name: 'Shell Helix Ultra 5W-30',
-        description: 'Óleo sintético premium para motores modernos com máxima proteção.',
-        price: 'R$ 89,90',
-        category: 'shell',
-        image: 'https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'Sintético'
-    },
-    {
-        id: 2,
-        name: 'ACDelco Dexron VI',
-        description: 'Fluido para transmissão automática de alta performance e durabilidade.',
-        price: 'R$ 45,90',
-        category: 'acdelco',
-        image: 'https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'Original'
-    },
-    {
-        id: 3,
-        name: 'Motorlub Super 20W-50',
-        description: 'Óleo mineral de alta qualidade para motores convencionais.',
-        price: 'R$ 32,90',
-        category: 'motorlub',
-        image: 'https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'Mineral'
-    },
-    {
-        id: 4,
-        name: 'Idemitsu 0W-20',
-        description: 'Óleo sintético japonês de baixa viscosidade para economia de combustível.',
-        price: 'R$ 95,90',
-        category: 'idemitsu',
-        image: 'https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'Japonês'
-    },
-    {
-        id: 5,
-        name: 'Shell Rimula R6 LM 10W-40',
-        description: 'Óleo diesel sintético para caminhões e veículos pesados.',
-        price: 'R$ 125,90',
-        category: 'shell',
-        image: 'https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'Diesel'
-    },
-    {
-        id: 6,
-        name: 'ACDelco DOT 4',
-        description: 'Fluido de freio de alta performance para sistemas de freio modernos.',
-        price: 'R$ 28,90',
-        category: 'acdelco',
-        image: 'https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'DOT 4'
-    },
-    {
-        id: 7,
-        name: 'Motorlub Gear 85W-140',
-        description: 'Óleo para diferencial e caixa de câmbio manual de alta viscosidade.',
-        price: 'R$ 38,90',
-        category: 'motorlub',
-        image: 'https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'Diferencial'
-    },
-    {
-        id: 8,
-        name: 'Idemitsu CVT',
-        description: 'Fluido especial para transmissões continuamente variáveis (CVT).',
-        price: 'R$ 78,90',
-        category: 'idemitsu',
-        image: 'https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'CVT'
-    },
-    {
-        id: 9,
-        name: 'Valvoline MaxLife 10W-40',
-        description: 'Óleo semissintético especial para veículos com alta quilometragem.',
-        price: 'R$ 52,90',
-        category: 'outras',
-        image: 'https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'Alta Km'
-    },
-    {
-        id: 10,
-        name: 'Shell Advance AX7 10W-40',
-        description: 'Óleo para motocicletas 4 tempos com tecnologia avançada.',
-        price: 'R$ 42,90',
-        category: 'shell',
-        image: 'https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'Moto'
-    },
-    {
-        id: 11,
-        name: 'ACDelco Arla 32',
-        description: 'Solução de ureia para sistemas SCR de veículos diesel Euro V.',
-        price: 'R$ 15,90',
-        category: 'acdelco',
-        image: 'https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'Arla 32'
-    },
-    {
-        id: 12,
-        name: 'Motorlub Hidráulico 68',
-        description: 'Óleo hidráulico para sistemas de direção hidráulica e equipamentos.',
-        price: 'R$ 35,90',
-        category: 'motorlub',
-        image: 'https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=400',
-        badge: 'Hidráulico'
-    }
-];
+const brandsCarousel = document.getElementById('brands-carousel');
 
 // Mobile Navigation
 function showMenu() {
@@ -153,10 +40,10 @@ function handleScroll() {
     const scrollY = window.pageYOffset;
     
     if (scrollY >= 50) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.background = 'rgba(30, 58, 138, 0.98)';
         header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
     } else {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.background = 'rgba(30, 58, 138, 1)';
         header.style.boxShadow = 'none';
     }
 }
@@ -200,101 +87,74 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Product filtering
-function renderProducts(productsToRender = products) {
-    productsGrid.innerHTML = '';
+// Brands Carousel
+function initBrandsCarousel() {
+    const track = document.querySelector('.brands-track');
+    const items = document.querySelectorAll('.brand-item');
+    const dotsContainer = document.getElementById('carousel-dots');
     
-    productsToRender.forEach(product => {
-        const productCard = createProductCard(product);
-        productsGrid.appendChild(productCard);
+    if (!track || !items.length) return;
+    
+    // Clone items for infinite scroll
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
     });
     
-    // Add animation delay
+    // Create dots
+    const totalSlides = Math.ceil(items.length / 5); // Show 5 brands at a time
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+    
+    let currentSlide = 0;
+    
+    function goToSlide(slideIndex) {
+        const dots = document.querySelectorAll('.carousel-dot');
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[slideIndex].classList.add('active');
+        currentSlide = slideIndex;
+    }
+    
+    // Auto-advance carousel
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
+    }, 4000);
+}
+
+// Contact form handling
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        subject: formData.get('subject'),
+        message: formData.get('message')
+    };
+    
+    // Simulate form submission
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    
+    submitButton.textContent = 'Enviando...';
+    submitButton.disabled = true;
+    
     setTimeout(() => {
-        document.querySelectorAll('.product-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 100}ms`;
-            card.classList.add('fade-in-up');
-        });
-    }, 100);
-}
-
-function createProductCard(product) {
-    const card = document.createElement('div');
-    card.className = `product-card ${product.category}`;
-    card.innerHTML = `
-        <div class="product-image">
-            <img src="${product.image}" alt="${product.name}">
-            <div class="product-badge">${product.badge}</div>
-        </div>
-        <div class="product-info">
-            <h3 class="product-title">${product.name}</h3>
-            <p class="product-description">${product.description}</p>
-            <div class="product-price">${product.price}</div>
-            <div class="product-actions">
-                <button class="btn btn-primary btn-small" onclick="addToCart(${product.id})">
-                    Comprar
-                </button>
-                <button class="btn btn-secondary btn-small" onclick="showProductDetails(${product.id})">
-                    Detalhes
-                </button>
-            </div>
-        </div>
-    `;
-    return card;
-}
-
-function filterProducts(category) {
-    const productCards = document.querySelectorAll('.product-card');
+        showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+        this.reset();
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+    }, 2000);
     
-    productCards.forEach(card => {
-        if (category === 'all' || card.classList.contains(category)) {
-            card.classList.remove('hidden');
-            card.style.animation = 'none';
-            setTimeout(() => {
-                card.style.animation = '';
-                card.classList.add('fade-in');
-            }, 50);
-        } else {
-            card.classList.add('hidden');
-        }
-    });
-}
-
-// Filter button event listeners
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Update active button
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        // Filter products
-        const category = button.getAttribute('data-filter');
-        filterProducts(category);
-    });
+    console.log('Form submitted:', data);
 });
-
-// Product actions
-function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    if (product) {
-        // Simulate adding to cart
-        showNotification(`${product.name} adicionado ao carrinho!`, 'success');
-        
-        // Here you would typically add the product to a cart state/localStorage
-        console.log('Product added to cart:', product);
-    }
-}
-
-function showProductDetails(productId) {
-    const product = products.find(p => p.id === productId);
-    if (product) {
-        // Simulate showing product details modal
-        showNotification(`Detalhes de ${product.name}`, 'info');
-        
-        // Here you would typically open a modal or navigate to product page
-        console.log('Show product details:', product);
-    }
-}
 
 // Notification system
 function showNotification(message, type = 'info') {
@@ -382,36 +242,6 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Contact form handling
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(this);
-    const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        subject: formData.get('subject'),
-        message: formData.get('message')
-    };
-    
-    // Simulate form submission
-    const submitButton = this.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    
-    submitButton.textContent = 'Enviando...';
-    submitButton.disabled = true;
-    
-    setTimeout(() => {
-        showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-        this.reset();
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-    }, 2000);
-    
-    console.log('Form submitted:', data);
-});
-
 // Scroll animations
 function animateOnScroll() {
     const elements = document.querySelectorAll('.animate-on-scroll');
@@ -430,11 +260,13 @@ function animateOnScroll() {
 function initScrollAnimations() {
     const elementsToAnimate = [
         '.section-header',
-        '.service-card',
+        '.advantage-card',
+        '.product-item',
         '.about-text',
         '.stat',
         '.contact-item',
-        '.footer-section'
+        '.footer-section',
+        '.testimonial-card'
     ];
     
     elementsToAnimate.forEach(selector => {
@@ -444,13 +276,58 @@ function initScrollAnimations() {
     });
 }
 
+// WhatsApp button animation
+function initWhatsAppButton() {
+    const whatsappBtn = document.getElementById('whatsapp-btn');
+    
+    // Show/hide based on scroll
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            whatsappBtn.style.opacity = '1';
+            whatsappBtn.style.visibility = 'visible';
+        } else {
+            whatsappBtn.style.opacity = '0';
+            whatsappBtn.style.visibility = 'hidden';
+        }
+    });
+}
+
+// Testimonials auto-scroll
+function initTestimonialsScroll() {
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    let currentTestimonial = 0;
+    
+    function highlightTestimonial() {
+        testimonialCards.forEach((card, index) => {
+            if (index === currentTestimonial) {
+                card.style.transform = 'scale(1.02)';
+                card.style.boxShadow = '0 10px 25px rgba(30, 58, 138, 0.15)';
+            } else {
+                card.style.transform = 'scale(1)';
+                card.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+    }
+    
+    // Highlight testimonials every 3 seconds
+    setInterval(highlightTestimonial, 3000);
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Render initial products
-    renderProducts();
-    
     // Initialize scroll animations
     initScrollAnimations();
+    
+    // Initialize brands carousel
+    initBrandsCarousel();
+    
+    // Initialize WhatsApp button
+    initWhatsAppButton();
+    
+    // Initialize testimonials scroll
+    initTestimonialsScroll();
     
     // Set up scroll animation listener
     window.addEventListener('scroll', animateOnScroll);
@@ -458,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Trigger initial animation check
     animateOnScroll();
     
-    console.log('Sima Automotiva website loaded successfully!');
+    console.log('SIMAC Distribuidora website loaded successfully!');
 });
 
 // Performance optimization
@@ -496,3 +373,45 @@ if ('serviceWorker' in navigator) {
         console.log('Service Worker support detected');
     });
 }
+
+// Intersection Observer for better performance
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+});
+
+// Lazy loading for images
+function initLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Initialize lazy loading
+document.addEventListener('DOMContentLoaded', initLazyLoading);

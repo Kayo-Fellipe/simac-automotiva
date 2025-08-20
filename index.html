@@ -3,28 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sima Automotiva - Soluções Completas para seu Veículo</title>
-    <title>Sima Automotiva - Distribuidora de Lubrificantes e Peças Automotivas</title>
+    <title>SIMAC - Distribuidora de Óleos Lubrificantes e Filtros</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-button" id="whatsapp-btn">
+        <a href="https://wa.me/5511999999999" target="_blank" aria-label="Fale conosco no WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.63"/>
+            </svg>
+        </a>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#home" class="nav-logo">
-                <span class="logo-text">SIMA</span>
-                <span class="logo-subtitle">Automotiva</span>
+                <span class="logo-text">SIMAC</span>
+                <span class="logo-subtitle">Distribuidora</span>
             </a>
             
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li><a href="#home" class="nav-link active">Início</a></li>
                     <li><a href="#about" class="nav-link">Sobre</a></li>
-                    <li><a href="#services" class="nav-link">Serviços</a></li>
-                    <li><a href="#catalog" class="nav-link">Catálogo</a></li>
+                    <li><a href="#products" class="nav-link">Produtos</a></li>
+                    <li><a href="#advantages" class="nav-link">Vantagens</a></li>
+                    <li><a href="#brands" class="nav-link">Marcas</a></li>
+                    <li><a href="#testimonials" class="nav-link">Depoimentos</a></li>
                     <li><a href="#contact" class="nav-link">Contato</a></li>
                 </ul>
                 <div class="nav-close" id="nav-close">
@@ -48,20 +58,27 @@
             <div class="hero-container container">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        Distribuidora de <span class="highlight">Lubrificantes</span><br>
-                        e Peças Automotivas
+                        <span class="highlight">Distribuidora</span> de<br>
+                        óleos lubrificantes e<br>
+                        filtro em São Paulo!
                     </h1>
                     <p class="hero-description">
-                        Distribuidora de Peças e Lubrificantes Automotivos com experiência há mais de 23 anos no mercado. 
-                        Oferecemos atendimento especializado, as melhores marcas com qualidade e logística moderna e eficiente.
+                        Qualidade, segurança e preço justo é na SIMAC. Conheça 
+                        nosso catálogo de produtos para sua oficina mecânica, 
+                        troca de óleo ou centro automotivo.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#catalog" class="btn btn-primary">Ver Produtos</a>
-                        <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
+                        <a href="https://wa.me/5511999999999" class="btn btn-whatsapp" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.63"/>
+                            </svg>
+                            Fale Conosco pelo Whatsapp
+                        </a>
+                        <a href="#products" class="btn btn-secondary">Ver Produtos</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Peças Automotivas">
+                    <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Produtos Automotivos SIMAC">
                 </div>
             </div>
         </section>
@@ -70,84 +87,142 @@
         <section class="about section" id="about">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Sobre a Sima Automotiva</h2>
-                    <p class="section-subtitle">Distribuidora especializada em lubrificantes e peças automotivas</p>
+                    <h2 class="section-title">Sobre a SIMAC</h2>
+                    <p class="section-subtitle">Distribuidora especializada em óleos lubrificantes e filtros automotivos</p>
                 </div>
                 
                 <div class="about-content">
                     <div class="about-text">
-                        <h3>Mais de 23 anos de experiência</h3>
+                        <h3>Mais de 20 anos de experiência</h3>
                         <p>
-                            Distribuidora de Peças e Lubrificantes Automotivos com experiência há mais de 23 anos no mercado. 
-                            Oferecemos atendimento especializado, as melhores marcas para atender com muita qualidade e com 
-                            logística moderna e eficiente. Sendo parceiros de negócios de nossos clientes, nossa missão é 
-                            entregar soluções para este mercado competitivo e exigente.
+                            A SIMAC é uma distribuidora especializada em óleos lubrificantes e filtros automotivos, 
+                            com mais de 20 anos de experiência no mercado. Oferecemos produtos de alta qualidade 
+                            das melhores marcas, com atendimento especializado e logística eficiente para atender 
+                            oficinas mecânicas, centros automotivos e revendedores em todo o estado de São Paulo.
                         </p>
                         <div class="stats">
                             <div class="stat">
-                                <h4>23+</h4>
+                                <h4>20+</h4>
                                 <p>Anos no Mercado</p>
                             </div>
                             <div class="stat">
-                                <h4>500+</h4>
-                                <p>Parceiros Ativos</p>
+                                <h4>1000+</h4>
+                                <p>Clientes Ativos</p>
                             </div>
                             <div class="stat">
-                                <h4>2k+</h4>
+                                <h4>5k+</h4>
                                 <p>Produtos Disponíveis</p>
                             </div>
                         </div>
                     </div>
                     <div class="about-image">
-                        <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Loja Sima Automotiva">
+                        <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Equipe SIMAC">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="services section" id="services">
+        <!-- Products Section -->
+        <section class="products section" id="products">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Nossos Serviços</h2>
-                    <p class="section-subtitle">Distribuição especializada com qualidade e eficiência</p>
+                    <h2 class="section-title">
+                        Quais são os produtos que<br>
+                        você encontra na <span class="highlight">SIMAC</span>?
+                    </h2>
                 </div>
                 
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Filtros de Câmbio Automático">
                         </div>
-                        <h3>Lubrificantes Premium</h3>
-                        <p>Óleos lubrificantes das melhores marcas: Shell, ACDelco, Motorlub, Idemitsu e outras marcas renomadas.</p>
+                        <div class="product-info">
+                            <h3>Filtros de Câmbio Automático</h3>
+                        </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
-                                <line x1="12" y1="22.08" x2="12" y2="12"/>
-                            </svg>
+                    <div class="product-item">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Óleos Lubrificantes">
                         </div>
-                        <h3>Peças Automotivas</h3>
-                        <p>Distribuição de peças automotivas de qualidade com estoque amplo e diversificado para atender todas as necessidades.</p>
+                        <div class="product-info">
+                            <h3>Óleos Lubrificantes</h3>
+                        </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                            </svg>
+                    <div class="product-item">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Filtros de Cabine">
                         </div>
-                        <h3>Logística Eficiente</h3>
-                        <p>Sistema de distribuição moderno e eficiente com entregas rápidas e seguras para todo o território nacional.</p>
+                        <div class="product-info">
+                            <h3>Filtros de Cabine</h3>
+                        </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-icon">
+                    <div class="product-item">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Filtros Vox, Brasil e Japanparts">
+                        </div>
+                        <div class="product-info">
+                            <h3>Filtros Vox, Brasil e Japanparts</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="product-item">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Aditivos e Aerossóis">
+                        </div>
+                        <div class="product-info">
+                            <h3>Aditivos e Aerossóis</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="products-cta">
+                    <a href="https://wa.me/5511999999999" class="btn btn-whatsapp" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.63"/>
+                        </svg>
+                        Fale Conosco pelo Whatsapp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advantages Section -->
+        <section class="advantages section" id="advantages">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        Quais são as vantagens de comprar seus óleos<br>
+                        lubrificantes e filtros na <span class="highlight">SIMAC</span>?
+                    </h2>
+                </div>
+                
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
+                                <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
+                                <path d="M5 17h-2v-4m-1 -8h11v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"/>
+                            </svg>
+                        </div>
+                        <h3>Catálogo completo em óleos lubrificantes e filtros</h3>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3>As melhores marcas estão aqui</h3>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                                 <circle cx="9" cy="7" r="4"/>
@@ -155,37 +230,143 @@
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                             </svg>
                         </div>
-                        <h3>Atendimento Especializado</h3>
-                        <p>Equipe técnica especializada para orientar na escolha dos melhores produtos para cada aplicação específica.</p>
+                        <h3>Atendimento experiente de quem conhece sobre o assunto</h3>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <h3>Entrega rápida e eficiente</h3>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+                            </svg>
+                        </div>
+                        <h3>Produtos com qualidade e segurança</h3>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Catalog Section -->
-        <section class="catalog section" id="catalog">
+        <!-- Brands Section -->
+        <section class="brands section" id="brands">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Catálogo de Produtos</h2>
-                    <p class="section-subtitle">Encontre as melhores peças e acessórios para seu veículo</p>
+                    <h2 class="section-title">Marcas que você encontra aqui:</h2>
                 </div>
                 
-                <div class="catalog-filters">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="shell">Shell</button>
-                    <button class="filter-btn" data-filter="acdelco">ACDelco</button>
-                    <button class="filter-btn" data-filter="motorlub">Motorlub</button>
-                    <button class="filter-btn" data-filter="idemitsu">Idemitsu</button>
-                    <button class="filter-btn" data-filter="outras">Outras Marcas</button>
+                <div class="brands-carousel" id="brands-carousel">
+                    <div class="brands-track">
+                        <div class="brand-item">
+                            <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Radibras">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Evoque Automotive">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Tecbril">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="TRW Varga">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="BProAuto">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Shell">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Castrol">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Mobil">
+                        </div>
+                    </div>
+                    <div class="carousel-dots" id="carousel-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Depoimentos</h2>
                 </div>
                 
-                <div class="products-grid" id="products-grid">
-                    <!-- Products will be loaded here by JavaScript -->
-                </div>
-                
-                <div class="catalog-cta">
-                    <p>Não encontrou o que procura?</p>
-                    <a href="#contact" class="btn btn-primary">Solicite um Orçamento</a>
+                <div class="testimonials-content">
+                    <div class="testimonials-rating">
+                        <div class="rating-badge">
+                            <h3>Excelente</h3>
+                            <div class="stars">
+                                <span>★★★★★</span>
+                            </div>
+                            <p>Com base em <strong>73 avaliações</strong></p>
+                            <div class="google-logo">
+                                <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=100&h=40" alt="Google">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-cards">
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <span>R</span>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Rogerio Siqueira</h4>
+                                    <span>2024-02-10</span>
+                                </div>
+                                <div class="google-icon">G</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <span>★★★★★</span>
+                            </div>
+                            <p>Um ótimo atendimento</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <span>P</span>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Polliana Nascimento</h4>
+                                    <span>2024-02-09</span>
+                                </div>
+                                <div class="google-icon">G</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <span>★★★★★</span>
+                            </div>
+                            <p>Excelente distribuidora, ótimo atendimento.</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <div class="testimonial-avatar">
+                                    <span>C</span>
+                                </div>
+                                <div class="testimonial-info">
+                                    <h4>Claudia Marcia</h4>
+                                    <span>2024-02-09</span>
+                                </div>
+                                <div class="google-icon">G</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <span>★★★★★</span>
+                            </div>
+                            <p>Atendimento excelente</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -209,7 +390,7 @@
                             </div>
                             <div>
                                 <h3>Endereço</h3>
-                                <p>Rua das Peças, 123<br>Centro - São Paulo, SP<br>CEP: 01234-567</p>
+                                <p>Rua dos Lubrificantes, 456<br>Vila Industrial - São Paulo, SP<br>CEP: 01234-567</p>
                             </div>
                         </div>
                         
@@ -234,7 +415,7 @@
                             </div>
                             <div>
                                 <h3>E-mail</h3>
-                                <p>contato@simautomotiva.com.br<br>vendas@simautomotiva.com.br</p>
+                                <p>contato@simac.com.br<br>vendas@simac.com.br</p>
                             </div>
                         </div>
                     </div>
@@ -254,8 +435,7 @@
                                 <option value="">Selecione o assunto</option>
                                 <option value="orcamento">Solicitação de Orçamento</option>
                                 <option value="produto">Informações sobre Produto</option>
-                                <option value="servico">Agendamento de Serviço</option>
-                                <option value="garantia">Questões de Garantia</option>
+                                <option value="distribuicao">Distribuição</option>
                                 <option value="outros">Outros</option>
                             </select>
                         </div>
@@ -274,8 +454,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Sima Automotiva</h3>
-                    <p>Especialistas em soluções automotivas há mais de 20 anos. Qualidade, confiança e atendimento diferenciado.</p>
+                    <h3>SIMAC Distribuidora</h3>
+                    <p>Especialistas em óleos lubrificantes e filtros automotivos há mais de 20 anos. Qualidade, confiança e atendimento diferenciado.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -295,18 +475,18 @@
                     <ul>
                         <li><a href="#home">Início</a></li>
                         <li><a href="#about">Sobre</a></li>
-                        <li><a href="#services">Serviços</a></li>
-                        <li><a href="#catalog">Catálogo</a></li>
+                        <li><a href="#products">Produtos</a></li>
+                        <li><a href="#advantages">Vantagens</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Serviços</h4>
+                    <h4>Produtos</h4>
                     <ul>
-                        <li><a href="#">Lubrificantes</a></li>
-                        <li><a href="#">Peças Automotivas</a></li>
-                        <li><a href="#">Fluidos de Freio</a></li>
-                        <li><a href="#">Distribuição</a></li>
+                        <li><a href="#">Óleos Lubrificantes</a></li>
+                        <li><a href="#">Filtros Automotivos</a></li>
+                        <li><a href="#">Aditivos</a></li>
+                        <li><a href="#">Aerossóis</a></li>
                     </ul>
                 </div>
                 
@@ -314,14 +494,14 @@
                     <h4>Contato</h4>
                     <ul>
                         <li>(11) 1234-5678</li>
-                        <li>contato@simautomotiva.com.br</li>
-                        <li>Rua das Peças, 123<br>Centro - São Paulo, SP</li>
+                        <li>contato@simac.com.br</li>
+                        <li>Rua dos Lubrificantes, 456<br>Vila Industrial - São Paulo, SP</li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Sima Automotiva. Todos os direitos reservados.</p>
+                <p>&copy; 2024 SIMAC Distribuidora. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
