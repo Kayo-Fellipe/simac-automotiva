@@ -658,7 +658,7 @@ body {
 }
 
 .advantage-card h3 {
-    font-size: 1.9rem;
+    font-size: 0.5rem;
     font-weight: var(--font-weight-semibold);
     color: var(--text-white);
     line-height: var(--line-height-normal);
