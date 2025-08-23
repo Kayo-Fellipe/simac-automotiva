@@ -681,17 +681,7 @@ body {
     animation: scroll 20s linear infinite;
 }
 
-.brand-item {
-    flex: 0 0 200px;
-    height: 100px;
-    background: white;
-    border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
-}
+
 
 .brand-item img {
     max-width: 80%;
