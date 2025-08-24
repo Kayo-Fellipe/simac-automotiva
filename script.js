@@ -88,58 +88,94 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 function initBrandsCarousel() {
+  const carousel = document.querySelector('.brands-carousel');
   const track = document.querySelector('.brands-track');
-  const items = document.querySelectorAll('.brand-item');
-  const dotsContainer = document.getElementById('carousel-dots');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
+  const items = Array.from(document.querySelectorAll('.brand-item'));
+  const dotsContainer = document.getElementById('testimonial-dots');
+  const prevBtn = document.getElementById('prev-testimonial');
+  const nextBtn = document.getElementById('next-testimonial');
 
-  if (!track || !items.length) return;
-
-  const itemsPerSlide = 5;
-  const totalSlides = Math.ceil(items.length / itemsPerSlide);
+  if (!carousel || !track || !items.length || !dotsContainer) return;
 
   let currentSlide = 0;
+  let itemsPerSlide = getItemsPerSlide();
+  let totalSlides = Math.ceil(items.length / itemsPerSlide);
+
+  // Layout inicial
+  track.style.display = 'flex';
+  track.style.transition = 'transform .4s ease';
+  updateItemWidths();
 
   // Criar dots
-  for (let i = 0; i < totalSlides; i++) {
-    const dot = document.createElement('div');
-    dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
-    dot.addEventListener('click', () => goToSlide(i));
-    dotsContainer.appendChild(dot);
+  function createDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = `testimonial-dot${i === 0 ? ' active' : ''}`;
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
   }
+  createDots();
 
   function updateDots() {
-    const dots = document.querySelectorAll('.carousel-dot');
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentSlide].classList.add('active');
+    const dots = dotsContainer.querySelectorAll('.testimonial-dot');
+    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentSlide));
   }
 
   function goToSlide(slideIndex) {
     currentSlide = slideIndex;
-    const offset = -(slideIndex * 100);
-    track.style.transform = `translateX(${offset}%)`;
+    track.style.transform = `translateX(-${slideIndex * 100}%)`;
     updateDots();
   }
 
   // Botões
-  prevBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    goToSlide(currentSlide);
-  });
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+    });
+  }
 
-  nextBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    goToSlide(currentSlide);
-  });
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      goToSlide((currentSlide + 1) % totalSlides);
+    });
+  }
 
-  // Auto avançar a cada 10s
-  setInterval(() => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    goToSlide(currentSlide);
+  // Auto play
+  let auto = setInterval(() => {
+    goToSlide((currentSlide + 1) % totalSlides);
   }, 10000);
+
+  carousel.addEventListener('mouseenter', () => clearInterval(auto));
+  carousel.addEventListener('mouseleave', () => {
+    clearInterval(auto);
+    auto = setInterval(() => {
+      goToSlide((currentSlide + 1) % totalSlides);
+    }, 10000);
+  });
+
+  // Funções auxiliares
+  function getItemsPerSlide() {
+    if (window.innerWidth < 600) return 2;   // Mobile
+    if (window.innerWidth < 992) return 3;   // Tablet
+    return 5;                                // Desktop
+  }
+
+  function updateItemWidths() {
+    itemsPerSlide = getItemsPerSlide();
+    totalSlides = Math.ceil(items.length / itemsPerSlide);
+    items.forEach(el => { el.style.flex = `0 0 ${100 / itemsPerSlide}%`; });
+    createDots();
+    goToSlide(0);
+  }
+
+  // Atualizar ao redimensionar
+  window.addEventListener('resize', updateItemWidths);
 }
 
+document.addEventListener('DOMContentLoaded', initBrandsCarousel);
 document.addEventListener("DOMContentLoaded", initBrandsCarousel);
 
 // Contact form handling

@@ -712,6 +712,70 @@ body {
   transition: background 0.3s;
 }
 
+.testimonial-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-5);
+  gap: var(--space-4);
+}
+
+.testimonial-arrow {
+  background-color: transparent;
+  border: 2px solid var(--color-light);
+  color: var(--color-light);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.2rem;
+}
+
+.testimonial-arrow:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-light);
+  box-shadow: 0px 0px 20px rgba(138, 43, 226, 0.5);
+
+}
+
+.add-testimonial-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.add-testimonial-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* se quiser tudo em coluna */
+  text-align: center;     /* centralizar o texto */
+}
+
+.testimonial-dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.testimonial-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-light);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.testimonial-dot.active,
+.testimonial-dot:hover {
+  background-color: var(--color-primary);
+}
 .carousel-btn:hover {
   background: rgba(0,0,0,0.8);
 }
@@ -964,7 +1028,7 @@ body {
 }
 
 .contact-relaction{
-    margin-top: -280px;
+    margin-top: -20px;
 }
 
 .whatsapp-contact-card {
