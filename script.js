@@ -339,6 +339,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize brands carousel
     initBrandsCarousel();
     
+    // Initialize product gallery
+    initProductGallery();
+    
     // Initialize WhatsApp button
     initWhatsAppButton();
     
@@ -431,3 +434,141 @@ function initLazyLoading() {
 
 // Initialize lazy loading
 document.addEventListener('DOMContentLoaded', initLazyLoading);
+
+// Product Gallery Filter System
+function initProductGallery() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            galleryItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                
+                if (filterValue === 'all' || itemCategory === filterValue) {
+                    item.classList.remove('hidden');
+                    // Animate in
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    // Animate out
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.classList.add('hidden');
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
+// Enhanced brands carousel with better performance
+function initBrandsCarousel() {
+  const track = document.querySelector('.brands-track');
+  const items = document.querySelectorAll('.brand-item');
+  const dotsContainer = document.getElementById('carousel-dots');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  if (!track || !items.length) return;
+
+  const itemsPerSlide = window.innerWidth < 768 ? 2 : window.innerWidth < 1024 ? 3 : 5;
+  const totalSlides = Math.ceil(items.length / itemsPerSlide);
+
+  let currentSlide = 0;
+  let isAnimating = false;
+
+  // Clear existing dots
+  dotsContainer.innerHTML = '';
+
+  // Create dots
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('div');
+    dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => {
+      if (!isAnimating) goToSlide(i);
+    });
+    dotsContainer.appendChild(dot);
+  }
+
+  function updateDots() {
+    const dots = document.querySelectorAll('.carousel-dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlide);
+    });
+  }
+
+  function goToSlide(slideIndex) {
+    if (isAnimating) return;
+    
+    isAnimating = true;
+    currentSlide = slideIndex;
+    const offset = -(slideIndex * 100);
+    track.style.transform = `translateX(${offset}%)`;
+    updateDots();
+    
+    setTimeout(() => {
+      isAnimating = false;
+    }, 600);
+  }
+
+  // Navigation buttons
+  prevBtn.addEventListener('click', () => {
+    if (!isAnimating) {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      goToSlide(currentSlide);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (!isAnimating) {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      goToSlide(currentSlide);
+    }
+  });
+
+  // Auto advance with pause on hover
+  let autoAdvanceInterval;
+  
+  function startAutoAdvance() {
+    autoAdvanceInterval = setInterval(() => {
+      if (!isAnimating) {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
+      }
+    }, 4000);
+  }
+  
+  function stopAutoAdvance() {
+    clearInterval(autoAdvanceInterval);
+  }
+  
+  // Start auto advance
+  startAutoAdvance();
+  
+  // Pause on hover
+  track.addEventListener('mouseenter', stopAutoAdvance);
+  track.addEventListener('mouseleave', startAutoAdvance);
+  
+  // Handle window resize
+  window.addEventListener('resize', debounce(() => {
+    const newItemsPerSlide = window.innerWidth < 768 ? 2 : window.innerWidth < 1024 ? 3 : 5;
+    if (newItemsPerSlide !== itemsPerSlide) {
+      // Reinitialize carousel with new settings
+      stopAutoAdvance();
+      setTimeout(() => {
+        initBrandsCarousel();
+      }, 100);
+    }
+  }, 250));
+}
