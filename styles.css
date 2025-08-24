@@ -954,9 +954,10 @@ body {
 .footer-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-2xl);
-    margin-bottom: var(--spacing-2xl);
+    gap: 0 5rem;
+    margin-bottom: var(--spacing-1xl);
 }
+
 
 .footer-section h3 {
     font-size: var(--font-size-xl);
@@ -972,9 +973,12 @@ body {
 }
 
 .footer-section p {
+    font-size: 0.9rem;
     color: #9ca3af;
     line-height: var(--line-height-relaxed);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    width: 300px;
+
 }
 
 .footer-section ul {
