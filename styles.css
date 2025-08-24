@@ -670,34 +670,75 @@ body {
 }
 
 .brands-carousel {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+.brands-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out; /* deslize suave no JS */
 }
 
-.brands-track {
-    display: flex;
-    gap: var(--spacing-xl);
-    animation: scroll 20s linear infinite;
-}
 
 .brand-item {
-    flex: 0 0 200px;
-    height: 120px;
-    border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
+  flex: 0 0 20%; /* sempre 5 itens por vez */
+  height: 120px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+/* Botões de navegação */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* Dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-dot.active {
+  background: var(--primary-color, #333);
 }
 
 .brand-item img {
-    max-width: 100%;
-    max-height: 100px;
-    object-fit: contain;
-    filter: grayscale(100%);
-    transition: filter var(--transition-normal);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* mantém proporção, não corta */
 }
 
 .brand-item:hover img {

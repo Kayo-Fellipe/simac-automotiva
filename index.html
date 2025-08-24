@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -257,42 +258,45 @@
 
         <!-- Brands Section -->
         <section class="brands section" id="brands">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Marcas que você encontra aqui:</h2>
-                </div>
-                
-                <div class="brands-carousel" id="brands-carousel">
-                    <div class="brands-track">
-                        <div class="brand-item">
-                            <img src="https://simacautomotiva.com.br/wp-content/uploads/2024/02/motorcraft-vector-logo.png" alt="Radibras">
-                        </div>
-                        <div class="brand-item">
-                            <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Evoque Automotive">
-                        </div>
-                        <div class="brand-item">
-                            <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Tecbril">
-                        </div>
-                        <div class="brand-item">
-                            <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="TRW Varga">
-                        </div>
-                        <div class="brand-item">
-                            <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="BProAuto">
-                        </div>
-                        <div class="brand-item">
-                            <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Shell">
-                        </div>
-                        <div class="brand-item">
-                            <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Castrol">
-                        </div>
-                        <div class="brand-item">
-                            <img src="https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" alt="Mobil">
-                        </div>
-                    </div>
-                    <div class="carousel-dots" id="carousel-dots"></div>
-                </div>
-            </div>
-        </section>
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Marcas que você encontra aqui:</h2>
+    </div>
+
+    <div class="brands-carousel" id="brands-carousel">
+      <button class="carousel-btn prev" id="prevBtn">&#10094;</button>
+      <div class="brands-track">
+        <div class="brand-item">
+          <img src="https://simacautomotiva.com.br/wp-content/uploads/2024/02/motorcraft-vector-logo.png" alt="Radibras">
+        </div>
+        <div class="brand-item">
+          <img src="https://simacautomotiva.com.br/wp-content/uploads/2024/02/omnicraft-logo.jpg" alt="Evoque Automotive">
+        </div>
+        <div class="brand-item">
+          <img src="https://simacautomotiva.com.br/wp-content/uploads/2024/02/transferir.png" alt="Tecbril">
+        </div>
+        <div class="brand-item">
+          <img src="https://simacautomotiva.com.br/wp-content/uploads/2024/02/brasil.png" alt="TRW Varga">
+        </div>
+        <div class="brand-item">
+          <img src="https://simacautomotiva.com.br/wp-content/uploads/2024/02/TIGER-AUTO-Logo-1.png" alt="BProAuto">
+        </div>
+        <div class="brand-item">
+          <img src="https://simacautomotiva.com.br/wp-content/uploads/2024/02/shell-logo-1-e1709314145169.png" alt="Shell">
+        </div>
+        <div class="brand-item">
+          <img src="https://simacautomotiva.com.br/wp-content/uploads/2024/02/transferir-1.png" alt="Castrol">
+        </div>
+        <div class="brand-item">
+          <img src="https://simacautomotiva.com.br/wp-content/uploads/2024/03/Logotipo-Vetorial-Vox-1.png" alt="Mobil">
+        </div>
+      </div>
+      <button class="carousel-btn next" id="nextBtn">&#10095;</button>
+
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+  </div>
+</section>
 
         <!-- Testimonials Section -->
         <section class="testimonials section" id="testimonials">
@@ -474,13 +478,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>SIMAC Distribuidora</h3>
-                    <p>Distribuidora de Peças e Lubrificantes automotivos com experiência a mais de 23 anos no mercado.</p>
-                    <p>
-                        55 11 3368-6305
-                        contato@simacautomotiva.com.br
-                        Endereço: R. Lauzane, 606 - Capela <br> do Socorro, São Paulo - SP, 04782-010    
-                    </p>    
+                        <h3>SIMAC Distribuidora</h3>
+                        <p>
+                            Distribuidora de Peças e Lubrificantes automotivos com experiência a mais de 23 anos no mercado.
+                        </p>
+                        <p>
+                            <i class="fa-solid fa-phone"></i> 55 11 3368-6305 <br>
+                            <i class="fa-solid fa-envelope"></i> contato@simacautomotiva.com.br <br>
+                            <i class="fa-solid fa-location-dot"></i> Endereço: R. Lauzane, 606 - Capela do Socorro, São Paulo - SP, 04782-010
+                        </p>   
                     
                        
                 </div>

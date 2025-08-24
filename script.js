@@ -87,44 +87,60 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Brands Carousel
 function initBrandsCarousel() {
-    const track = document.querySelector('.brands-track');
-    const items = document.querySelectorAll('.brand-item');
-    const dotsContainer = document.getElementById('carousel-dots');
-    
-    if (!track || !items.length) return;
-    
-    // Clone items for infinite scroll
-    items.forEach(item => {
-        const clone = item.cloneNode(true);
-        track.appendChild(clone);
-    });
-    
-    // Create dots
-    const totalSlides = Math.ceil(items.length / 5); // Show 5 brands at a time
-    for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-    }
-    
-    let currentSlide = 0;
-    
-    function goToSlide(slideIndex) {
-        const dots = document.querySelectorAll('.carousel-dot');
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[slideIndex].classList.add('active');
-        currentSlide = slideIndex;
-    }
-    
-    // Auto-advance carousel
-    setInterval(() => {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        goToSlide(currentSlide);
-    }, 4000);
+  const track = document.querySelector('.brands-track');
+  const items = document.querySelectorAll('.brand-item');
+  const dotsContainer = document.getElementById('carousel-dots');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  if (!track || !items.length) return;
+
+  const itemsPerSlide = 5;
+  const totalSlides = Math.ceil(items.length / itemsPerSlide);
+
+  let currentSlide = 0;
+
+  // Criar dots
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('div');
+    dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  function updateDots() {
+    const dots = document.querySelectorAll('.carousel-dot');
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentSlide].classList.add('active');
+  }
+
+  function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    const offset = -(slideIndex * 100);
+    track.style.transform = `translateX(${offset}%)`;
+    updateDots();
+  }
+
+  // Botões
+  prevBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    goToSlide(currentSlide);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    goToSlide(currentSlide);
+  });
+
+  // Auto avançar a cada 10s
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    goToSlide(currentSlide);
+  }, 10000);
 }
+
+document.addEventListener("DOMContentLoaded", initBrandsCarousel);
 
 // Contact form handling
 contactForm.addEventListener('submit', function(e) {
