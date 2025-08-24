@@ -922,32 +922,32 @@ body {
 
 .contact-item {
     display: flex;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-2xl);
+    gap: var(--spacing-md); /* menor espaço entre ícone e texto */
+    margin-bottom: var(--spacing-lg); /* diminui espaço entre os blocos */
+    align-items: flex-start; /* garante que ícone e título fiquem alinhados no topo */
 }
 
 .contact-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     background-color: var(--primary-color);
     color: white;
     border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
 }
 
 .contact-item h3 {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-base);
+    margin-bottom: 4px; /* bem menor que antes */
 }
 
 .contact-item p {
-    color: var(--text-secondary);
-    line-height: var(--line-height-relaxed);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin: 0; /* remove espaçamento extra */
 }
 
 .contact-form {
@@ -961,6 +961,10 @@ body {
 .contact-whatsapp {
     display: flex;
     align-items: center;
+}
+
+.contact-relaction{
+    margin-top: -280px;
 }
 
 .whatsapp-contact-card {
