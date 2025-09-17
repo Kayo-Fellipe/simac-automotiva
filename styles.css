@@ -1027,10 +1027,6 @@ body {
     align-items: center;
 }
 
-.contact-relaction{
-    margin-bottom: -200px;
-}
-
 .whatsapp-contact-card {
     background: linear-gradient(135deg, var(--whatsapp-color), #128c7e);
     color: white;
