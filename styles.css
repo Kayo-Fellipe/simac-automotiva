@@ -701,7 +701,8 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: var(--space-5);
-  gap: var(--space-4);
+  padding-top: 2rem;
+  gap: 2rem;
 }
 
 .testimonial-arrow {
