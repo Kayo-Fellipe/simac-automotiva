@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoParts Pro - Distribuidor Automotivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>AutoParts Pro</h1>
+                    <span>Distribuição Automotiva Profissional</span>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Buscar produtos, marcas ou códigos...">
+                    <button type="button" id="searchBtn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <aside class="sidebar">
+            <div class="filter-section">
+                <h3>Filtrar Produtos</h3>
+                
+                <div class="filter-group">
+                    <h4>Marcas</h4>
+                    <div class="filter-options" id="brandFilters">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked>
+                            <span class="checkmark"></span>
+                            Todas as Marcas
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Categorias de Produtos</h4>
+                    <div class="filter-options" id="categoryFilters">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked>
+                            <span class="checkmark"></span>
+                            Todas as Categorias
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Disponibilidade</h4>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked id="availabilityAll">
+                            <span class="checkmark"></span>
+                            Todos os Produtos
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="in-stock" id="availabilityInStock">
+                            <span class="checkmark"></span>
+                            Apenas em Estoque
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" value="special-order" id="availabilitySpecialOrder">
+                            <span class="checkmark"></span>
+                            Pedido Especial
+                        </label>
+                    </div>
+                </div>
+
+                <button class="clear-filters" id="clearFilters">Limpar Todos os Filtros</button>
+            </div>
+        </aside>
+
+        <section class="content">
+            <div class="content-header">
+                <h2>Catálogo de Produtos</h2>
+                <div class="results-info">
+                    <span id="resultsCount">0 produtos encontrados</span>
+                    <select id="sortSelect" class="sort-select">
+                        <option value="name">Ordenar por Nome</option>
+                        <option value="brand">Ordenar por Marca</option>
+                        <option value="category">Ordenar por Categoria</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Carregando produtos...</p>
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <svg width="64" height="64" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                </svg>
+                <h3>Nenhum produto encontrado</h3>
+                <p>Tente ajustar seus critérios de busca ou filtros</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AutoParts Pro</h4>
+                <p>Seu distribuidor de peças automotivas de confiança desde 1985</p>
+            </div>
+            <div class="footer-section">
+                <h4>Informações de Contato</h4>
+                <p>Telefone: (11) 3456-7890</p>
+                <p>Email: info@autopartspro.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Horário de Funcionamento</h4>
+                <p>Seg-Sex: 07:00 - 18:00</p>
+                <p>Sáb: 08:00 - 16:00</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
