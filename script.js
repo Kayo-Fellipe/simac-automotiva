@@ -369,6 +369,9 @@ function initTestimonialsScroll() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize promotional slider
+    initPromoSlider();
+    
     // Initialize scroll animations
     initScrollAnimations();
     
@@ -466,6 +469,114 @@ function initLazyLoading() {
     });
     
     images.forEach(img => imageObserver.observe(img));
+}
+
+// Promotional Slider
+function initPromoSlider() {
+    const sliderTrack = document.getElementById('slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('slider-prev');
+    const nextBtn = document.getElementById('slider-next');
+    const dots = document.querySelectorAll('.slider-dot');
+    
+    if (!sliderTrack || !slides.length) return;
+    
+    let currentSlide = 0;
+    let isAnimating = false;
+    let autoSlideInterval;
+    
+    function updateSlider() {
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        // Update slides
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Move slider track
+        sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        setTimeout(() => {
+            isAnimating = false;
+        }, 600);
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlider();
+    }
+    
+    function goToSlide(slideIndex) {
+        currentSlide = slideIndex;
+        updateSlider();
+    }
+    
+    // Event listeners
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (!isAnimating) {
+                nextSlide();
+                resetAutoSlide();
+            }
+        });
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (!isAnimating) {
+                prevSlide();
+                resetAutoSlide();
+            }
+        });
+    }
+    
+    // Dots navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            if (!isAnimating && index !== currentSlide) {
+                goToSlide(index);
+                resetAutoSlide();
+            }
+        });
+    });
+    
+    // Auto-advance functionality
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 3000);
+    }
+    
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+    
+    function resetAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+    }
+    
+    // Pause auto-advance on hover
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    }
+    
+    // Start auto-advance
+    startAutoSlide();
+    
+    // Initialize first slide
+    updateSlider();
 }
 
 // Initialize lazy loading
