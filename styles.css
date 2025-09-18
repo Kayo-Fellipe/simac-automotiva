@@ -621,6 +621,103 @@ body {
     text-align: center;
 }
 
+/* Catalog Shortcut Panel */
+.catalog-shortcut {
+    margin-top: var(--spacing-4xl);
+    display: flex;
+    justify-content: center;
+}
+
+.catalog-panel {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+    border: 1px solid rgba(249, 115, 22, 0.4);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-2xl);
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.catalog-panel:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--secondary-color);
+}
+
+.catalog-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: white;
+    border-radius: var(--radius-xl);
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.3);
+}
+
+.catalog-content {
+    flex: 1;
+    color: var(--text-white);
+}
+
+.catalog-content h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-white);
+}
+
+.catalog-content p {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-lg);
+}
+
+.btn-catalog {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: white;
+    font-weight: var(--font-weight-semibold);
+    border: none;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+}
+
+.btn-catalog:hover {
+    background: linear-gradient(135deg, var(--accent-color), #dc2626);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+}
+
+@media (max-width: 639px) {
+    .catalog-panel {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-xl);
+    }
+    
+    .catalog-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .catalog-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .btn-catalog {
+        width: 100%;
+    }
+}
+
 /* Advantages Section */
 .advantages {
     background: linear-gradient(135deg, var(--bg-navy) 0%, var(--bg-dark) 100%);
