@@ -1047,7 +1047,6 @@ body {
 .contact-details p {
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
-    line-height: var(--line-height-relaxed);
     margin: 0;
 }
 
