@@ -967,8 +967,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 36px;
+    height: 36px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-full);
     flex-shrink: 0;
@@ -1009,7 +1009,7 @@ body {
 /* Contact Information Card - Compact design */
 .contact-info-card {
     background: white;
-    padding: var(--spacing-xl);
+    padding: 25px;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
@@ -1041,7 +1041,6 @@ body {
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-    margin-bottom: var(--spacing-xs);
 }
 
 .contact-details p {
@@ -1053,7 +1052,7 @@ body {
 /* Working Hours Card - Aligned design */
 .working-hours-card {
     background: white;
-    padding: var(--spacing-xl);
+    padding: 20px;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
@@ -1063,8 +1062,8 @@ body {
 }
 
 .hours-icon {
-    width: 50px;
-    height: 50px;
+    width: 36px;
+    height: 36px;
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     color: white;
     border-radius: var(--radius-full);
