@@ -786,7 +786,7 @@ body {
 
 /* Brands Section */
 .brands {
-    background-color: var(--bg-secondary);
+    background-color: #ececec;
 }
 
 .brands-carousel {
@@ -929,7 +929,7 @@ body {
 
 /* Contact Section - NEW DESIGN */
 .contact {
-    background-color: var(--bg-secondary);
+    background-color:#ececec;
 }
 
 .contact-content {
