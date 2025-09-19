@@ -1009,7 +1009,7 @@ body {
 /* Contact Information Card - Compact design */
 .contact-info-card {
     background: white;
-    padding: 25px;
+    padding: 30px;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
@@ -1052,7 +1052,7 @@ body {
 /* Working Hours Card - Aligned design */
 .working-hours-card {
     background: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
