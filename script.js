@@ -629,24 +629,66 @@ function initBrandsCarousel() {
 
   if (!track || !items.length) return;
 
-  const itemsPerSlide = window.innerWidth < 768 ? 2 : window.innerWidth < 1024 ? 3 : 5;
+  let itemsPerSlide = getItemsPerSlide();
   const totalSlides = Math.ceil(items.length / itemsPerSlide);
 
   let currentSlide = 0;
   let isAnimating = false;
 
+  // Function to determine items per slide based on screen size
+  function getItemsPerSlide() {
+    if (window.innerWidth < 768) return 2;   // Mobile: 2 items
+    if (window.innerWidth < 1024) return 3;  // Tablet: 3 items
+    return 5;                                // Desktop: 5 items
+  }
+
+  // Update layout based on screen size
+  function updateLayout() {
+    const newItemsPerSlide = getItemsPerSlide();
+    if (newItemsPerSlide !== itemsPerSlide) {
+      itemsPerSlide = newItemsPerSlide;
+      const newTotalSlides = Math.ceil(items.length / itemsPerSlide);
+      
+      // Update item flex basis
+      items.forEach(item => {
+        item.style.flex = `0 0 ${100 / itemsPerSlide}%`;
+      });
+      
+      // Recreate dots if needed
+      if (newTotalSlides !== totalSlides) {
+        createDots(newTotalSlides);
+      }
+      
+      // Reset to first slide if current slide is out of bounds
+      if (currentSlide >= newTotalSlides) {
+        currentSlide = 0;
+        goToSlide(0);
+      }
+    }
+  }
+
+  // Set initial item widths
+  items.forEach(item => {
+    item.style.flex = `0 0 ${100 / itemsPerSlide}%`;
+  });
   // Clear existing dots
   dotsContainer.innerHTML = '';
 
-  // Create dots
-  for (let i = 0; i < totalSlides; i++) {
-    const dot = document.createElement('div');
-    dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
-    dot.addEventListener('click', () => {
-      if (!isAnimating) goToSlide(i);
-    });
-    dotsContainer.appendChild(dot);
+  // Create dots function
+  function createDots(slides) {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < slides; i++) {
+      const dot = document.createElement('div');
+      dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+      dot.addEventListener('click', () => {
+        if (!isAnimating) goToSlide(i);
+      });
+      dotsContainer.appendChild(dot);
+    }
   }
+
+  // Initial dots creation
+  createDots(totalSlides);
 
   function updateDots() {
     const dots = document.querySelectorAll('.carousel-dot');
@@ -672,14 +714,16 @@ function initBrandsCarousel() {
   // Navigation buttons
   prevBtn.addEventListener('click', () => {
     if (!isAnimating) {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      const slides = Math.ceil(items.length / itemsPerSlide);
+      currentSlide = (currentSlide - 1 + slides) % slides;
       goToSlide(currentSlide);
     }
   });
 
   nextBtn.addEventListener('click', () => {
     if (!isAnimating) {
-      currentSlide = (currentSlide + 1) % totalSlides;
+      const slides = Math.ceil(items.length / itemsPerSlide);
+      currentSlide = (currentSlide + 1) % slides;
       goToSlide(currentSlide);
     }
   });
@@ -690,7 +734,8 @@ function initBrandsCarousel() {
   function startAutoAdvance() {
     autoAdvanceInterval = setInterval(() => {
       if (!isAnimating) {
-        currentSlide = (currentSlide + 1) % totalSlides;
+        const slides = Math.ceil(items.length / itemsPerSlide);
+        currentSlide = (currentSlide + 1) % slides;
         goToSlide(currentSlide);
       }
     }, 4000);
@@ -709,13 +754,6 @@ function initBrandsCarousel() {
   
   // Handle window resize
   window.addEventListener('resize', debounce(() => {
-    const newItemsPerSlide = window.innerWidth < 768 ? 2 : window.innerWidth < 1024 ? 3 : 5;
-    if (newItemsPerSlide !== itemsPerSlide) {
-      // Reinitialize carousel with new settings
-      stopAutoAdvance();
-      setTimeout(() => {
-        initBrandsCarousel();
-      }, 100);
-    }
+    updateLayout();
   }, 250));
 }
