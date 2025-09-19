@@ -5,7 +5,6 @@ const navClose = document.getElementById('nav-close');
 const navLinks = document.querySelectorAll('.nav-link');
 const header = document.getElementById('header');
 const contactForm = document.getElementById('contact-form');
-const brandsCarousel = document.getElementById('brands-carousel');
 
 // Mobile Navigation
 function showMenu() {
@@ -87,126 +86,304 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-function initBrandsCarousel() {
-  const carousel = document.querySelector('.brands-carousel');
-  const track = document.querySelector('.brands-track');
-  const items = Array.from(document.querySelectorAll('.brand-item'));
-  const dotsContainer = document.getElementById('testimonial-dots');
-  const prevBtn = document.getElementById('prev-testimonial');
-  const nextBtn = document.getElementById('next-testimonial');
-
-  if (!carousel || !track || !items.length || !dotsContainer) return;
-
-  let currentSlide = 0;
-  let itemsPerSlide = getItemsPerSlide();
-  let totalSlides = Math.ceil(items.length / itemsPerSlide);
-
-  // Layout inicial
-  track.style.display = 'flex';
-  track.style.transition = 'transform .4s ease';
-  updateItemWidths();
-
-  // Criar dots
-  function createDots() {
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement('button');
-      dot.type = 'button';
-      dot.className = `testimonial-dot${i === 0 ? ' active' : ''}`;
-      dot.addEventListener('click', () => goToSlide(i));
-      dotsContainer.appendChild(dot);
+// Promotional Slider
+function initPromoSlider() {
+    const sliderTrack = document.getElementById('slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('slider-prev');
+    const nextBtn = document.getElementById('slider-next');
+    const dots = document.querySelectorAll('.slider-dot');
+    
+    if (!sliderTrack || !slides.length) return;
+    
+    let currentSlide = 0;
+    let isAnimating = false;
+    let autoSlideInterval;
+    
+    function updateSlider() {
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        // Update slides
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Move slider track
+        sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        setTimeout(() => {
+            isAnimating = false;
+        }, 600);
     }
-  }
-  createDots();
-
-  function updateDots() {
-    const dots = dotsContainer.querySelectorAll('.testimonial-dot');
-    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentSlide));
-  }
-
-  function goToSlide(slideIndex) {
-    currentSlide = slideIndex;
-    track.style.transform = `translateX(-${slideIndex * 100}%)`;
-    updateDots();
-  }
-
-  // Botões
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlider();
+    }
+    
+    function goToSlide(slideIndex) {
+        currentSlide = slideIndex;
+        updateSlider();
+    }
+    
+    // Event listeners
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (!isAnimating) {
+                nextSlide();
+                resetAutoSlide();
+            }
+        });
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (!isAnimating) {
+                prevSlide();
+                resetAutoSlide();
+            }
+        });
+    }
+    
+    // Dots navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            if (!isAnimating && index !== currentSlide) {
+                goToSlide(index);
+                resetAutoSlide();
+            }
+        });
     });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      goToSlide((currentSlide + 1) % totalSlides);
-    });
-  }
-
-  // Auto play
-  let auto = setInterval(() => {
-    goToSlide((currentSlide + 1) % totalSlides);
-  }, 10000);
-
-  carousel.addEventListener('mouseenter', () => clearInterval(auto));
-  carousel.addEventListener('mouseleave', () => {
-    clearInterval(auto);
-    auto = setInterval(() => {
-      goToSlide((currentSlide + 1) % totalSlides);
-    }, 10000);
-  });
-
-  // Funções auxiliares
-  function getItemsPerSlide() {
-    if (window.innerWidth < 600) return 2;   // Mobile
-    if (window.innerWidth < 992) return 3;   // Tablet
-    return 5;                                // Desktop
-  }
-
-  function updateItemWidths() {
-    itemsPerSlide = getItemsPerSlide();
-    totalSlides = Math.ceil(items.length / itemsPerSlide);
-    items.forEach(el => { el.style.flex = `0 0 ${100 / itemsPerSlide}%`; });
-    createDots();
-    goToSlide(0);
-  }
-
-  // Atualizar ao redimensionar
-  window.addEventListener('resize', updateItemWidths);
+    
+    // Auto-advance functionality
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 3000);
+    }
+    
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+    
+    function resetAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+    }
+    
+    // Pause auto-advance on hover
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    }
+    
+    // Start auto-advance
+    startAutoSlide();
+    
+    // Initialize first slide
+    updateSlider();
 }
 
-document.addEventListener('DOMContentLoaded', initBrandsCarousel);
-document.addEventListener("DOMContentLoaded", initBrandsCarousel);
+// Enhanced brands carousel with proper responsive behavior
+function initBrandsCarousel() {
+    const track = document.querySelector('.brands-track');
+    const items = document.querySelectorAll('.brand-item');
+    const dotsContainer = document.querySelector('.testimonial-dots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (!track || !items.length || !dotsContainer) return;
+
+    let currentSlide = 0;
+    let itemsPerSlide = getItemsPerSlide();
+    let totalSlides = Math.ceil(items.length / itemsPerSlide);
+    let isAnimating = false;
+    let autoAdvanceInterval;
+
+    // Function to determine items per slide based on screen size
+    function getItemsPerSlide() {
+        const width = window.innerWidth;
+        if (width <= 767) return 2;   // Mobile: 2 items
+        if (width <= 1023) return 3;  // Tablet: 3 items
+        return 5;                     // Desktop: 5 items
+    }
+
+    // Update layout based on screen size
+    function updateLayout() {
+        const newItemsPerSlide = getItemsPerSlide();
+        const newTotalSlides = Math.ceil(items.length / newItemsPerSlide);
+        
+        if (newItemsPerSlide !== itemsPerSlide || newTotalSlides !== totalSlides) {
+            itemsPerSlide = newItemsPerSlide;
+            totalSlides = newTotalSlides;
+            
+            // Update item flex basis
+            items.forEach(item => {
+                item.style.flex = `0 0 ${100 / itemsPerSlide}%`;
+            });
+            
+            // Recreate dots
+            createDots();
+            
+            // Reset to first slide if current slide is out of bounds
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            
+            goToSlide(currentSlide);
+        }
+    }
+
+    // Set initial item widths
+    function initializeItems() {
+        items.forEach(item => {
+            item.style.flex = `0 0 ${100 / itemsPerSlide}%`;
+        });
+    }
+
+    // Create dots function
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('span');
+            dot.className = `testimonial-dot ${i === 0 ? 'active' : ''}`;
+            dot.setAttribute('data-slide', i);
+            dot.addEventListener('click', () => {
+                if (!isAnimating) goToSlide(i);
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateDots() {
+        const dots = dotsContainer.querySelectorAll('.testimonial-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    function goToSlide(slideIndex) {
+        if (isAnimating || slideIndex === currentSlide) return;
+        
+        isAnimating = true;
+        currentSlide = slideIndex;
+        const offset = -(slideIndex * 100);
+        track.style.transform = `translateX(${offset}%)`;
+        updateDots();
+        
+        setTimeout(() => {
+            isAnimating = false;
+        }, 600);
+    }
+
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % totalSlides;
+        goToSlide(nextIndex);
+    }
+
+    function prevSlide() {
+        const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+        goToSlide(prevIndex);
+    }
+
+    // Navigation buttons
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (!isAnimating) {
+                prevSlide();
+                resetAutoAdvance();
+            }
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (!isAnimating) {
+                nextSlide();
+                resetAutoAdvance();
+            }
+        });
+    }
+
+    // Auto advance functionality
+    function startAutoAdvance() {
+        autoAdvanceInterval = setInterval(() => {
+            if (!isAnimating) {
+                nextSlide();
+            }
+        }, 4000);
+    }
+    
+    function stopAutoAdvance() {
+        clearInterval(autoAdvanceInterval);
+    }
+    
+    function resetAutoAdvance() {
+        stopAutoAdvance();
+        startAutoAdvance();
+    }
+    
+    // Pause on hover
+    track.addEventListener('mouseenter', stopAutoAdvance);
+    track.addEventListener('mouseleave', startAutoAdvance);
+    
+    // Handle window resize with debounce
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            updateLayout();
+        }, 250);
+    });
+    
+    // Initialize everything
+    initializeItems();
+    createDots();
+    startAutoAdvance();
+    goToSlide(0);
+}
 
 // Contact form handling
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(this);
-    const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        subject: formData.get('subject'),
-        message: formData.get('message')
-    };
-    
-    // Simulate form submission
-    const submitButton = this.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    
-    submitButton.textContent = 'Enviando...';
-    submitButton.disabled = true;
-    
-    setTimeout(() => {
-        showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-        this.reset();
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-    }, 2000);
-    
-    console.log('Form submitted:', data);
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            subject: formData.get('subject'),
+            message: formData.get('message')
+        };
+        
+        // Simulate form submission
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        
+        submitButton.textContent = 'Enviando...';
+        submitButton.disabled = true;
+        
+        setTimeout(() => {
+            showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+            this.reset();
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }, 2000);
+        
+        console.log('Form submitted:', data);
+    });
+}
 
 // Notification system
 function showNotification(message, type = 'info') {
@@ -317,8 +494,7 @@ function initScrollAnimations() {
         '.about-text',
         '.stat',
         '.contact-item',
-        '.footer-section',
-        '.testimonial-card'
+        '.footer-section'
     ];
     
     elementsToAnimate.forEach(selector => {
@@ -332,69 +508,19 @@ function initScrollAnimations() {
 function initWhatsAppButton() {
     const whatsappBtn = document.getElementById('whatsapp-btn');
     
-    // Show/hide based on scroll
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            whatsappBtn.style.opacity = '1';
-            whatsappBtn.style.visibility = 'visible';
-        } else {
-            whatsappBtn.style.opacity = '0';
-            whatsappBtn.style.visibility = 'hidden';
-        }
-    });
-}
-
-// Testimonials auto-scroll
-function initTestimonialsScroll() {
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    let currentTestimonial = 0;
-    
-    function highlightTestimonial() {
-        testimonialCards.forEach((card, index) => {
-            if (index === currentTestimonial) {
-                card.style.transform = 'scale(1.02)';
-                card.style.boxShadow = '0 10px 25px rgba(30, 58, 138, 0.15)';
+    if (whatsappBtn) {
+        // Show/hide based on scroll
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                whatsappBtn.style.opacity = '1';
+                whatsappBtn.style.visibility = 'visible';
             } else {
-                card.style.transform = 'scale(1)';
-                card.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+                whatsappBtn.style.opacity = '0';
+                whatsappBtn.style.visibility = 'hidden';
             }
         });
-        
-        currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
     }
-    
-    // Highlight testimonials every 3 seconds
-    setInterval(highlightTestimonial, 3000);
 }
-
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize promotional slider
-    initPromoSlider();
-    
-    // Initialize scroll animations
-    initScrollAnimations();
-    
-    // Initialize brands carousel
-    initBrandsCarousel();
-    
-    // Initialize product gallery
-    initProductGallery();
-    
-    // Initialize WhatsApp button
-    initWhatsAppButton();
-    
-    // Initialize testimonials scroll
-    initTestimonialsScroll();
-    
-    // Set up scroll animation listener
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Trigger initial animation check
-    animateOnScroll();
-    
-    console.log('SIMAC Distribuidora website loaded successfully!');
-});
 
 // Performance optimization
 function debounce(func, wait) {
@@ -424,14 +550,6 @@ window.addEventListener('error', function(e) {
     showNotification('Ocorreu um erro inesperado. Por favor, recarregue a página.', 'error');
 });
 
-// Service Worker registration (for future PWA features)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Service worker registration would go here
-        console.log('Service Worker support detected');
-    });
-}
-
 // Intersection Observer for better performance
 const observerOptions = {
     threshold: 0.1,
@@ -446,314 +564,38 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize promotional slider
+    initPromoSlider();
+    
+    // Initialize scroll animations
+    initScrollAnimations();
+    
+    // Initialize brands carousel
+    initBrandsCarousel();
+    
+    // Initialize WhatsApp button
+    initWhatsAppButton();
+    
+    // Set up scroll animation listener
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Trigger initial animation check
+    animateOnScroll();
+    
+    // Observe elements for animation
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
         observer.observe(el);
     });
+    
+    console.log('SIMAC Distribuidora website loaded successfully!');
 });
 
-// Lazy loading for images
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
+// Service Worker registration (for future PWA features)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        // Service worker registration would go here
+        console.log('Service Worker support detected');
     });
-    
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Promotional Slider
-function initPromoSlider() {
-    const sliderTrack = document.getElementById('slider-track');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.getElementById('slider-prev');
-    const nextBtn = document.getElementById('slider-next');
-    const dots = document.querySelectorAll('.slider-dot');
-    
-    if (!sliderTrack || !slides.length) return;
-    
-    let currentSlide = 0;
-    let isAnimating = false;
-    let autoSlideInterval;
-    
-    function updateSlider() {
-        if (isAnimating) return;
-        isAnimating = true;
-        
-        // Update slides
-        slides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === currentSlide);
-        });
-        
-        // Update dots
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-        
-        // Move slider track
-        sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-        
-        setTimeout(() => {
-            isAnimating = false;
-        }, 600);
-    }
-    
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlider();
-    }
-    
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlider();
-    }
-    
-    function goToSlide(slideIndex) {
-        currentSlide = slideIndex;
-        updateSlider();
-    }
-    
-    // Event listeners
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            if (!isAnimating) {
-                nextSlide();
-                resetAutoSlide();
-            }
-        });
-    }
-    
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            if (!isAnimating) {
-                prevSlide();
-                resetAutoSlide();
-            }
-        });
-    }
-    
-    // Dots navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            if (!isAnimating && index !== currentSlide) {
-                goToSlide(index);
-                resetAutoSlide();
-            }
-        });
-    });
-    
-    // Auto-advance functionality
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 3000);
-    }
-    
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
-    
-    function resetAutoSlide() {
-        stopAutoSlide();
-        startAutoSlide();
-    }
-    
-    // Pause auto-advance on hover
-    const sliderContainer = document.querySelector('.slider-container');
-    if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', stopAutoSlide);
-        sliderContainer.addEventListener('mouseleave', startAutoSlide);
-    }
-    
-    // Start auto-advance
-    startAutoSlide();
-    
-    // Initialize first slide
-    updateSlider();
-}
-
-// Initialize lazy loading
-document.addEventListener('DOMContentLoaded', initLazyLoading);
-
-// Product Gallery Filter System
-function initProductGallery() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            galleryItems.forEach(item => {
-                const itemCategory = item.getAttribute('data-category');
-                
-                if (filterValue === 'all' || itemCategory === filterValue) {
-                    item.classList.remove('hidden');
-                    // Animate in
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 50);
-                } else {
-                    // Animate out
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.classList.add('hidden');
-                    }, 300);
-                }
-            });
-        });
-    });
-}
-
-// Enhanced brands carousel with better performance
-function initBrandsCarousel() {
-  const track = document.querySelector('.brands-track');
-  const items = document.querySelectorAll('.brand-item');
-  const dotsContainer = document.getElementById('carousel-dots');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-
-  if (!track || !items.length) return;
-
-  let itemsPerSlide = getItemsPerSlide();
-  const totalSlides = Math.ceil(items.length / itemsPerSlide);
-
-  let currentSlide = 0;
-  let isAnimating = false;
-
-  // Function to determine items per slide based on screen size
-  function getItemsPerSlide() {
-    if (window.innerWidth < 768) return 2;   // Mobile: 2 items
-    if (window.innerWidth < 1024) return 3;  // Tablet: 3 items
-    return 5;                                // Desktop: 5 items
-  }
-
-  // Update layout based on screen size
-  function updateLayout() {
-    const newItemsPerSlide = getItemsPerSlide();
-    if (newItemsPerSlide !== itemsPerSlide) {
-      itemsPerSlide = newItemsPerSlide;
-      const newTotalSlides = Math.ceil(items.length / itemsPerSlide);
-      
-      // Update item flex basis
-      items.forEach(item => {
-        item.style.flex = `0 0 ${100 / itemsPerSlide}%`;
-      });
-      
-      // Recreate dots if needed
-      if (newTotalSlides !== totalSlides) {
-        createDots(newTotalSlides);
-      }
-      
-      // Reset to first slide if current slide is out of bounds
-      if (currentSlide >= newTotalSlides) {
-        currentSlide = 0;
-        goToSlide(0);
-      }
-    }
-  }
-
-  // Set initial item widths
-  items.forEach(item => {
-    item.style.flex = `0 0 ${100 / itemsPerSlide}%`;
-  });
-  // Clear existing dots
-  dotsContainer.innerHTML = '';
-
-  // Create dots function
-  function createDots(slides) {
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < slides; i++) {
-      const dot = document.createElement('div');
-      dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
-      dot.addEventListener('click', () => {
-        if (!isAnimating) goToSlide(i);
-      });
-      dotsContainer.appendChild(dot);
-    }
-  }
-
-  // Initial dots creation
-  createDots(totalSlides);
-
-  function updateDots() {
-    const dots = document.querySelectorAll('.carousel-dot');
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === currentSlide);
-    });
-  }
-
-  function goToSlide(slideIndex) {
-    if (isAnimating) return;
-    
-    isAnimating = true;
-    currentSlide = slideIndex;
-    const offset = -(slideIndex * 100);
-    track.style.transform = `translateX(${offset}%)`;
-    updateDots();
-    
-    setTimeout(() => {
-      isAnimating = false;
-    }, 600);
-  }
-
-  // Navigation buttons
-  prevBtn.addEventListener('click', () => {
-    if (!isAnimating) {
-      const slides = Math.ceil(items.length / itemsPerSlide);
-      currentSlide = (currentSlide - 1 + slides) % slides;
-      goToSlide(currentSlide);
-    }
-  });
-
-  nextBtn.addEventListener('click', () => {
-    if (!isAnimating) {
-      const slides = Math.ceil(items.length / itemsPerSlide);
-      currentSlide = (currentSlide + 1) % slides;
-      goToSlide(currentSlide);
-    }
-  });
-
-  // Auto advance with pause on hover
-  let autoAdvanceInterval;
-  
-  function startAutoAdvance() {
-    autoAdvanceInterval = setInterval(() => {
-      if (!isAnimating) {
-        const slides = Math.ceil(items.length / itemsPerSlide);
-        currentSlide = (currentSlide + 1) % slides;
-        goToSlide(currentSlide);
-      }
-    }, 4000);
-  }
-  
-  function stopAutoAdvance() {
-    clearInterval(autoAdvanceInterval);
-  }
-  
-  // Start auto advance
-  startAutoAdvance();
-  
-  // Pause on hover
-  track.addEventListener('mouseenter', stopAutoAdvance);
-  track.addEventListener('mouseleave', startAutoAdvance);
-  
-  // Handle window resize
-  window.addEventListener('resize', debounce(() => {
-    updateLayout();
-  }, 250));
 }
