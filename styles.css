@@ -927,7 +927,7 @@ body {
     background-color: var(--bg-secondary);
 }
 
-/* Contact Section */
+/* Contact Section - NEW DESIGN */
 .contact {
     background-color: var(--bg-secondary);
 }
@@ -942,72 +942,131 @@ body {
 .contact-left {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
 }
 
-.whatsapp-contact-card {
+/* WhatsApp Contact Box - Green theme */
+.contact-whatsapp-box {
     background: linear-gradient(135deg, var(--whatsapp-color), #128c7e);
     color: white;
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-xl);
     border-radius: var(--radius-xl);
-    text-align: center;
-    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.2);
+    transition: all var(--transition-normal);
+}
+
+.contact-whatsapp-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
 }
 
 .whatsapp-icon {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-full);
-    margin-bottom: var(--spacing-lg);
+    flex-shrink: 0;
 }
 
-.whatsapp-content h3 {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-sm);
+.whatsapp-text {
+    flex: 1;
 }
 
-.whatsapp-content p {
-    margin-bottom: var(--spacing-lg);
-    opacity: 0.9;
-}
-
-.whatsapp-content .btn-whatsapp {
-    background: white;
-    color: var(--whatsapp-color);
+.whatsapp-text h3 {
+    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
 }
 
-.whatsapp-content .btn-whatsapp:hover {
-    background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
+.whatsapp-text p {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+    margin: 0;
 }
 
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
+.whatsapp-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Contact Information Card - Compact design */
+.contact-info-card {
     background: white;
     padding: var(--spacing-xl);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
 }
 
 .contact-item {
     display: flex;
-    gap: var(--spacing-md);
     align-items: flex-start;
+    gap: var(--spacing-md);
 }
 
 .contact-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.contact-details h4 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-details p {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+}
+
+/* Working Hours Card - Aligned design */
+.working-hours-card {
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+}
+
+.hours-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     color: white;
     border-radius: var(--radius-full);
     display: flex;
@@ -1016,20 +1075,26 @@ body {
     flex-shrink: 0;
 }
 
-.contact-item h3 {
-    font-size: var(--font-size-base);
+.hours-content h3 {
+    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
 }
 
-.contact-item p {
+.hours-content p {
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
     line-height: var(--line-height-relaxed);
     margin: 0;
+    margin-bottom: var(--spacing-xs);
 }
 
+.hours-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Contact Form - Unchanged */
 .contact-form {
     background-color: white;
     padding: var(--spacing-2xl);
@@ -1347,7 +1412,7 @@ body {
     /* Contact Section */
     .contact-content {
         grid-template-columns: 1fr;
-        gap: var(--spacing-3xl);
+        gap: var(--spacing-2xl);
     }
     
     .contact-left {
@@ -1503,42 +1568,41 @@ body {
         width: 100%;
     }
 
-    /* Contact Section */
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-2xl);
-    }
-    
-    .contact-left {
-        gap: var(--spacing-lg);
-    }
-    
-    .whatsapp-contact-card {
-        padding: var(--spacing-xl);
-    }
-    
-    .whatsapp-icon {
-        width: 50px;
-        height: 50px;
-        margin-bottom: var(--spacing-md);
-    }
-    
-    .contact-info {
+    /* Contact Section - Mobile Responsive */
+    .contact-whatsapp-box {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
         padding: var(--spacing-lg);
     }
     
-    .contact-form {
-        padding: var(--spacing-xl);
+    .whatsapp-icon {
+        width: 60px;
+        height: 60px;
+        align-self: center;
+    }
+    
+    .contact-info-card,
+    .working-hours-card {
+        padding: var(--spacing-lg);
     }
     
     .contact-item {
         flex-direction: column;
         text-align: center;
         gap: var(--spacing-sm);
+        align-items: center;
     }
     
-    .contact-icon {
-        align-self: center;
+    .working-hours-card {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+        align-items: center;
+    }
+    
+    .contact-form {
+        padding: var(--spacing-xl);
     }
 
     /* Footer */
