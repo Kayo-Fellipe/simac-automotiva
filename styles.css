@@ -237,7 +237,9 @@ body {
     transition: all var(--transition-normal);
 }
 
-
+.nav-logo {
+    display: flex;
+}
 
 .nav-logo img {
   height: 50px;   /* controla a altura */
