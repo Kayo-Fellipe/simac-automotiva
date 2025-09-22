@@ -237,13 +237,21 @@ body {
     transition: all var(--transition-normal);
 }
 
-.nav-logo {
-    display: flex;
-}
-
 .nav-logo img {
   height: 50px;   /* controla a altura */
   width: auto;    /* mantém a proporção */
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) 0;
+}
+
+.nav-logo {
+    height: 50px;
+    width: 100px;
 }
 
 .logo-text {
