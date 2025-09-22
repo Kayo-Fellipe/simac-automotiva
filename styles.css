@@ -239,6 +239,7 @@ body {
 }
 
 .nav-logo img {
+    align-items: center;
   height: 50px;   /* controla a altura */
   width: auto;    /* mantém a proporção */
 }
