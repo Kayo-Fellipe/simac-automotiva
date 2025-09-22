@@ -231,7 +231,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 50px 70px;
+    padding: 0px 40px;
     background-color: var(--primary-color);
     backdrop-filter: blur(10px);
     z-index: 1000;
