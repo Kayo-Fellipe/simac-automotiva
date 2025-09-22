@@ -7,9 +7,9 @@
 
 :root {
     /* SIMAC Brand Colors */
-    --primary-color: #1e3a8a; /* Azul da navbar */
-    --primary-dark: #1e40af;
-    --secondary-color: #f97316; /* Laranja do "Distribuidora" */
+    --primary-color: #011526; /* Azul da navbar */
+    --primary-dark: #011526;
+    --secondary-color: #f25c05; /* Laranja do "Distribuidora" */
     --accent-color: #ea580c;
     --success-color: #10b981;
     --warning-color: #f59e0b;
@@ -23,7 +23,7 @@
     
     --bg-primary: #ffffff;
     --bg-secondary: #f8fafc;
-    --bg-dark: #0f172a;
+    --bg-dark: #011526;
     --bg-navy: #1e293b;
     
     --border-color: #e5e7eb;
