@@ -237,18 +237,11 @@ body {
     transition: all var(--transition-normal);
 }
 
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--spacing-md) 0;
-}
+
 
 .nav-logo {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    height: 50px;
+    width: 100px;
 }
 
 .logo-text {
