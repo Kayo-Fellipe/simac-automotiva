@@ -249,10 +249,7 @@ body {
     padding: var(--spacing-md) 0;
 }
 
-.nav-logo {
-    height: 50px;
-    width: 100px;
-}
+
 
 .logo-text {
     font-size: var(--font-size-2xl);
