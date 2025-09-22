@@ -231,6 +231,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    padding: 50px 0px;
     background-color: var(--primary-color);
     backdrop-filter: blur(10px);
     z-index: 1000;
@@ -247,21 +248,6 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: var(--spacing-md) 0;
-}
-
-
-
-.logo-text {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-extrabold);
-    color: var(--text-white);
-    line-height: 1;
-}
-
-.logo-subtitle {
-    font-size: var(--font-size-sm);
-    color: var(--secondary-color);
-    font-weight: var(--font-weight-medium);
 }
 
 .nav-list {
