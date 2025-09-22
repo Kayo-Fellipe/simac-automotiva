@@ -131,6 +131,7 @@ body {
 
 /* WhatsApp Button */
 .whatsapp-button {
+    align-content: center;
     position: fixed;
     bottom: 20px;
     right: 20px;
