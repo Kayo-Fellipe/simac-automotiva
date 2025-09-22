@@ -239,9 +239,9 @@ body {
 
 
 
-.nav-logo {
-    height: 50px;
-    width: 100px;
+.nav-logo img {
+  height: 50px;   /* controla a altura */
+  width: auto;    /* mantém a proporção */
 }
 
 .logo-text {
