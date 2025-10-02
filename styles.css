@@ -897,6 +897,47 @@ body {
     line-height: var(--line-height-normal);
 }
 
+/* Brand Descriptions Section */
+.brand-descriptions-section {
+    background-color: white;
+    padding: var(--spacing-4xl) 0;
+}
+
+.brand-descriptions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.brand-desc-item {
+    background: var(--bg-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.brand-desc-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--secondary-color);
+}
+
+.brand-desc-item h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.brand-desc-item p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
 /* Testimonials Section */
 .testimonials {
     background-color:#ececec;
