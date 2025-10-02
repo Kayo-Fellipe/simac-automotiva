@@ -899,43 +899,59 @@ body {
 
 /* Brand Descriptions Section */
 .brand-descriptions-section {
-    background-color: white;
-    padding: var(--spacing-4xl) 0;
+  background-color: white;
+  padding: var(--spacing-4xl) 0;
 }
 
 .brand-descriptions-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
-    max-width: 900px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* duas colunas */
+  gap: var(--spacing-lg);
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .brand-desc-item {
-    background: var(--bg-secondary);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--border-color);
-    transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  background: var(--bg-secondary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-normal);
 }
 
 .brand-desc-item:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--secondary-color);
 }
 
-.brand-desc-item h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-xs);
+.brand-desc-item img {
+  width: 60px;
+  height: auto;
+  margin-right: var(--spacing-md);
+  flex-shrink: 0;
 }
 
-.brand-desc-item p {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin: 0;
+.brand-text h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.brand-text p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Responsivo: 1 coluna no celular */
+@media (max-width: 768px) {
+  .brand-descriptions-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Testimonials Section */
