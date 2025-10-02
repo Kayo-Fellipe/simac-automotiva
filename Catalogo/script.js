@@ -23,7 +23,45 @@ document.addEventListener('DOMContentLoaded', function() {
     displayProducts(currentProducts);
     setupEventListeners();
     hideLoading();
+    initMobileMenu();
+    duplicateBrandsForCarousel();
 });
+
+// Mobile Menu Toggle
+function initMobileMenu() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navClose = document.getElementById('nav-close');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.add('active');
+        });
+    }
+
+    if (navClose) {
+        navClose.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    }
+
+    // Close menu when clicking on a nav link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+}
+
+// Duplicate brands for infinite carousel effect
+function duplicateBrandsForCarousel() {
+    const brandsTrack = document.querySelector('.brands-track');
+    if (brandsTrack) {
+        const brandItems = brandsTrack.innerHTML;
+        brandsTrack.innerHTML = brandItems + brandItems;
+    }
+}
 
 // Inicializar opções de filtro
 function initializeFilters() {
@@ -296,7 +334,7 @@ function checkAvailability(partNumber) {
                 break;
         }
         
-        message += '\n\nEntre em contato conosco pelo (11) 3456-7890 ou info@autopartspro.com para mais informações.';
+        message += '\n\nEntre em contato conosco pelo (11) 3368-6305 ou contato@simacautomotiva.com.br para mais informações.';
         
         alert(message);
     }
@@ -305,7 +343,7 @@ function checkAvailability(partNumber) {
 function requestQuote(partNumber) {
     const product = productsData.find(p => p.partNumber === partNumber);
     if (product) {
-        const message = `Solicitação de Cotação para:\n\nProduto: ${product.name}\nMarca: ${product.brand}\nCódigo: ${partNumber}\n\nRetornaremos com preços e disponibilidade em até 24 horas.\n\nContato: (11) 3456-7890 ou info@autopartspro.com`;
+        const message = `Solicitação de Cotação para:\n\nProduto: ${product.name}\nMarca: ${product.brand}\nCódigo: ${partNumber}\n\nRetornaremos com preços e disponibilidade em até 24 horas.\n\nContato: (11) 3368-6305 ou contato@simacautomotiva.com.br`;
         alert(message);
     }
 }

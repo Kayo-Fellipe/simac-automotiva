@@ -1,33 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoParts Pro - Distribuidor Automotivo</title>
+    <title>SIMAC - Catálogo de Produtos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>AutoParts Pro</h1>
-                    <span>Distribuição Automotiva Profissional</span>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="../index.html" class="nav-logo">
+                <img src="https://i.postimg.cc/Kjvfkqv7/Logo-Simac.png" alt="Logo Simac">
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="../index.html#home" class="nav-link">Início</a></li>
+                    <li><a href="../index.html#about" class="nav-link">Sobre</a></li>
+                    <li><a href="../index.html#products" class="nav-link">Produtos</a></li>
+                    <li><a href="index.html" class="nav-link active">Catálogo</a></li>
+                    <li><a href="../index.html#brands" class="nav-link">Marcas</a></li>
+                    <li><a href="../index.html#advantages" class="nav-link">Vantagens</a></li>
+                    <li><a href="../index.html#testimonials" class="nav-link">Depoimentos</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contato</a></li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="Buscar produtos, marcas ou códigos...">
-                    <button type="button" id="searchBtn">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
+            </div>
+
+            <div class="search-bar-catalog">
+                <input type="text" id="searchInput" placeholder="Buscar produtos, marcas ou códigos...">
+                <button type="button" id="searchBtn">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
 
-    <main class="main">
+    <main class="main-catalog">
+        <!-- Brands Carousel Section -->
+        <section class="brands-section">
+            <div class="container-catalog">
+                <div class="section-header-catalog">
+                    <h2 class="section-title-catalog">Marcas que você encontra aqui:</h2>
+                </div>
+                <div class="brands-carousel" id="brands-carousel">
+                    <div class="brands-track">
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/pdvsr34w/Royal-Lubrificantes-Logo.png" alt="Royal Lubrificantes">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/LsVN1NMn/Filtros-Vox-Logo.png" alt="Filtros Vox">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/wM1VnzRm/Filtros-Brasil-Logo.png" alt="Filtros Brasil">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/MKj5DWSk/Radibras-Logo.png" alt="Radibras">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/WbDWHG0H/Fram-Logo.png" alt="Fram">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/9f1YM0G9/Nissan-Logo.png" alt="Nissan">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/76YXM0xX/MAXI-Performance-Logo.png" alt="MAXI Performance">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/8PJGmrc1/Petronas-Logo.png" alt="Petronas">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/d1H6W33F/Shell-Logo.png" alt="Shell">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/L5gtNVGk/Castrol-Logo.png" alt="Castrol">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/DwrtxQTK/Synthetic-Logo.png" alt="Synthetic">
+                        </div>
+                        <div class="brand-item">
+                            <img src="https://i.postimg.cc/9008VTKz/Motorlub-Logo.png" alt="Motorlub">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Descriptions Section -->
+        <section class="brand-descriptions-section">
+            <div class="container-catalog">
+                <div class="brand-descriptions-grid">
+                    <div class="brand-desc-item">
+                        <h3>Castrol</h3>
+                        <p>Lubrificantes e óleos</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>Shell</h3>
+                        <p>Lubrificantes e óleos</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>Filtros Vox</h3>
+                        <p>Filtros automotivos</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>Filtros Brasil</h3>
+                        <p>Filtros automotivos</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>Fram</h3>
+                        <p>Filtros automotivos</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>Royal Lubrificantes</h3>
+                        <p>Lubrificantes e óleos</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>Petronas</h3>
+                        <p>Lubrificantes e óleos</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>Motorlub</h3>
+                        <p>Lubrificantes e óleos</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>Radibras</h3>
+                        <p>Radiadores e peças</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>MAXI Performance</h3>
+                        <p>Lubrificantes de alta performance</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>Nissan</h3>
+                        <p>Óleos e fluidos originais</p>
+                    </div>
+                    <div class="brand-desc-item">
+                        <h3>Synthetic</h3>
+                        <p>Lubrificantes sintéticos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="catalog-main">
         <aside class="sidebar">
             <div class="filter-section">
                 <h3>Filtrar Produtos</h3>
@@ -109,23 +241,55 @@
                 <p>Tente ajustar seus critérios de busca ou filtros</p>
             </div>
         </section>
+        </div>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>AutoParts Pro</h4>
-                <p>Seu distribuidor de peças automotivas de confiança desde 1985</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SIMAC Distribuidora</h3>
+                    <p>
+                        Distribuidora de Peças e Lubrificantes automotivos com experiência a mais de 23 anos no mercado.
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-phone"></i> 55 11 3368-6305 <br>
+                        <i class="fa-solid fa-envelope"></i> contato@simacautomotiva.com.br <br>
+                        <i class="fa-solid fa-location-dot"></i> Endereço: R. Lauzane, 606 - Capela do Socorro, São Paulo - SP, 04782-010
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="../index.html#home">Início</a></li>
+                        <li><a href="../index.html#about">Sobre</a></li>
+                        <li><a href="../index.html#products">Produtos</a></li>
+                        <li><a href="../index.html#advantages">Vantagens</a></li>
+                        <li><a href="../index.html#brands">Marcas</a></li>
+                        <li><a href="../index.html#contact">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Produtos</h4>
+                    <ul>
+                        <li><a href="#">Óleos Lubrificantes</a></li>
+                        <li><a href="#">Filtros Automotivos</a></li>
+                        <li><a href="#">Aditivos</a></li>
+                        <li><a href="#">Aerossóis</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Horário de Atendimento</h4>
+                    <p>Seg - Sex 08:00-17:30</p>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Informações de Contato</h4>
-                <p>Telefone: (11) 3456-7890</p>
-                <p>Email: info@autopartspro.com</p>
-            </div>
-            <div class="footer-section">
-                <h4>Horário de Funcionamento</h4>
-                <p>Seg-Sex: 07:00 - 18:00</p>
-                <p>Sáb: 08:00 - 16:00</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 SIMAC Distribuidora. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
