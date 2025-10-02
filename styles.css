@@ -907,7 +907,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* duas colunas */
   gap: var(--spacing-lg);
-  max-width: 1200px;
+  max-width: 1250px;
   margin: 0 auto;
 }
 
