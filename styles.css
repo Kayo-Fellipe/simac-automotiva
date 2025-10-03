@@ -95,7 +95,7 @@ body {
 }
 
 .container {
-    max-width: 1280px;
+    max-width: 1250px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
 }
@@ -330,7 +330,7 @@ body {
 
 .slider-container {
     position: relative;
-    max-width: 1280px;
+    max-width: 1250px;
     margin: 0 auto;
     height: 100%;
 }
