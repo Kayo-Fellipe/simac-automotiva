@@ -272,7 +272,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .nav-link::after {
@@ -282,7 +282,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     transition: width var(--transition-normal);
 }
 
