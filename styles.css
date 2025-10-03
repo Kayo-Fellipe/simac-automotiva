@@ -6,31 +6,36 @@
 }
 
 :root {
-    /* SIMAC Brand Colors */
-    --primary-color: #011526; /* Azul da navbar */
-    --primary-dark: #011526;
-    --secondary-color: #f25c05; /* Laranja do "Distribuidora" */
-    --accent-color: #ea580c;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --error-color: #ef4444;
-    --whatsapp-color: #25d366;
-    
-    --text-primary: #1f2937;
-    --text-secondary: #6b7280;
-    --text-light: #9ca3af;
-    --text-white: #ffffff;
-    
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-dark: #011526;
-    --bg-navy: #1e293b;
-    
-    --border-color: #e5e7eb;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+/* Principais */
+  --primary-color: #011526;   /* Azul profundo */
+  --secondary-color: #f25c05; /* Laranja energia */
+  --accent-color: #ff7a29;    /* Laranja mais claro para hover/focus */
+  
+  /* Feedbacks */
+  --success-color: #10b981; /* Verde sucesso */
+  --warning-color: #f59e0b; /* Amarelo alerta */
+  --error-color:   #ef4444; /* Vermelho erro */
+  --whatsapp-color: #25d366;
+
+  /* Textos */
+  --text-primary: #1f2937;   /* Cinza escuro */
+  --text-secondary: #475569; /* Cinza médio, mais elegante que #6b7280 */
+  --text-light: #9ca3af;     
+  --text-white: #ffffff;
+
+  /* Fundos */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;   /* Cinza claro */
+  --bg-dark: #011526;        /* Azul navy */
+  --bg-navy: #1e293b;        /* Azul/cinza escuro */
+  
+  /* Bordas e sombras */
+  --border-color: #e2e8f0;   /* Cinza suave */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
     
     /* Typography */
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
