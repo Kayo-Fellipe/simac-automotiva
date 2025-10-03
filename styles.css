@@ -961,12 +961,12 @@ body {
 
 /* Testimonials Section */
 .testimonials {
-    background-color:#ececec;
+    background-color:var(--bg-primary);
 }
 
 /* Contact Section - NEW DESIGN */
 .contact {
-    background-color:#ececec;
+    background-color: var(--bg-primary);
 }
 
 .contact-content {
