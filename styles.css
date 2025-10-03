@@ -766,7 +766,7 @@ body {
 
 /* Brands Section */
 .brands {
-    background-color: #ececec;
+    background-color: var(--bg-secondary);
 }
 
 .brands-carousel {
