@@ -464,11 +464,11 @@ body {
 }
 
 .slider-prev {
-    left: 0px;
+    left: 10px;
 }
 
 .slider-next {
-    right: 0px;
+    right: 10px;
 }
 
 .slider-dots {
