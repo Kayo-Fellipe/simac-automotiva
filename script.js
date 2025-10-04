@@ -37,13 +37,11 @@ document.addEventListener('click', (e) => {
 // Header scroll effect
 function handleScroll() {
     const scrollY = window.pageYOffset;
-    
+
     if (scrollY >= 50) {
-        header.style.background = 'rgba(30, 58, 138, 0.98)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        header.classList.add('scrolled');
     } else {
-        header.style.background = 'rgba(30, 58, 138, 1)';
-        header.style.boxShadow = 'none';
+        header.classList.remove('scrolled');
     }
 }
 
@@ -507,16 +505,14 @@ function initScrollAnimations() {
 // WhatsApp button animation
 function initWhatsAppButton() {
     const whatsappBtn = document.getElementById('whatsapp-btn');
-    
+
     if (whatsappBtn) {
         // Show/hide based on scroll
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                whatsappBtn.style.opacity = '1';
-                whatsappBtn.style.visibility = 'visible';
+                whatsappBtn.classList.add('visible');
             } else {
-                whatsappBtn.style.opacity = '0';
-                whatsappBtn.style.visibility = 'hidden';
+                whatsappBtn.classList.remove('visible');
             }
         });
     }
