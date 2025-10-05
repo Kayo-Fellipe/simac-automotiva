@@ -214,15 +214,15 @@ body {
     background-color: transparent;
     color: var(--secondary-color);
     border: 2px solid var(--secondary-color);
+    transition: all 0.4s ease; /* Transição mais natural */
 }
 
 .btn-secondary:hover {
-    transform: translateY(-1px);
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     color: white;
     font-weight: var(--font-weight-semibold);
     border: none;
-    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
 }
 
 .btn-whatsapp {
@@ -956,7 +956,7 @@ body {
 
 /* Contact Section - NEW DESIGN */
 .contact {
-    background-color: var(--bg-primary);
+    background-color: var(--se);
 }
 
 .contact-content {
@@ -1039,7 +1039,7 @@ body {
     padding: 30px;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--secondary-color);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
@@ -1082,7 +1082,7 @@ body {
     padding: 25px;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--secondary-color);
     display: flex;
     align-items: flex-start;
     gap: var(--spacing-md);
@@ -1125,7 +1125,7 @@ body {
     padding: var(--spacing-2xl);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--secondary-color);
     height: fit-content;
 }
 
