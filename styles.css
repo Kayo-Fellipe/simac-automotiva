@@ -293,7 +293,7 @@ body {
 .nav-toggle span {
     width: 24px;
     height: 2px;
-    background-color: var(--text-white);
+    background-color: var(--secondary-color);
     margin: 3px 0;
     transition: var(--transition-normal);
 }
