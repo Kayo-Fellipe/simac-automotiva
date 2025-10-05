@@ -248,7 +248,7 @@ body {
 }
 
 .nav-logo img {
-  height: 50px;   /* controla a altura */
+  height: 40px;   /* controla a altura */
   width: auto;    /* mantém a proporção */
 }
 
@@ -399,7 +399,7 @@ body {
     align-items: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-md) var(--spacing-xl);
-    background: linear-gradient(135deg, var(--whatsapp-color), #128c7e);
+    background: linear-gradient(340deg, var(--whatsapp-color), #128c7e);
     color: white;
     text-decoration: none;
     border-radius: var(--radius-lg);
@@ -412,7 +412,7 @@ body {
 .slide-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-    background: linear-gradient(135deg, #128c7e, #0d7377);
+    background: linear-gradient(135deg, var(--whatsapp-color), #128c7e);
 }
 
 .slide-image {
@@ -679,6 +679,7 @@ body {
 .products-cta {
     text-align: center;
 }
+
 
 /* Catalog Shortcut Panel */
 .catalog-shortcut {
@@ -1038,7 +1039,7 @@ body {
     background: white;
     padding: 30px;
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 8px 25px rgb(242, 92, 5, 0.1);
     border: 1px solid var(--secondary-color);
     display: flex;
     flex-direction: column;
@@ -1081,7 +1082,7 @@ body {
     background: white;
     padding: 25px;
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 8px 25px rgb(242, 92, 5, 0.1);
     border: 1px solid var(--secondary-color);
     display: flex;
     align-items: flex-start;
@@ -1124,7 +1125,7 @@ body {
     background-color: white;
     padding: var(--spacing-2xl);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 8px 25px rgb(242, 92, 5, 0.1);
     border: 1px solid var(--secondary-color);
     height: fit-content;
 }
@@ -1147,10 +1148,10 @@ body {
 
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+.form-group textarea:focus,
+.form-group option:focus {
+    border-color: var(--text-lightr);
+    box-shadow: 0 8px 25px rgb(242, 92, 5, 0.1);
 }
 
 .form-group textarea {
