@@ -564,7 +564,7 @@ body {
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4xl);
+    gap: var(--spacing-xl);
     align-items: center;
 }
 
@@ -597,13 +597,14 @@ body {
 }
 
 .stat h4 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-extrabold);
     color: var(--primary-color);
     margin-bottom: var(--spacing-xs);
 }
 
 .stat p {
+    font-size: var(--font-size-xs);
     color: var(--text-secondary);
     font-weight: var(--font-weight-medium);
     margin: 0;
