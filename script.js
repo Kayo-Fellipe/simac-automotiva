@@ -39,10 +39,10 @@ function handleScroll() {
     const scrollY = window.pageYOffset;
     
     if (scrollY >= 50) {
-        header.style.background = 'rgba(30, 58, 138, 0.98)';
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
         header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
     } else {
-        header.style.background = 'rgba(30, 58, 138, 1)';
+        header.style.background = 'rgba(255, 255, 255, 1)';
         header.style.boxShadow = 'none';
     }
 }
