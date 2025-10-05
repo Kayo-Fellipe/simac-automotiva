@@ -301,7 +301,7 @@ body {
 .nav-close span {
     width: 20px;
     height: 2px;
-    background-color: var(--text-primary);
+    background-color: var(--secondary-color);
     position: absolute;
     transition: var(--transition-normal);
 }
@@ -620,7 +620,7 @@ body {
 
 /* Products Section */
 .products {
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    background: var(--bg-dark);
     color: var(--text-white);
 }
 
@@ -897,7 +897,7 @@ body {
 /* Brand Descriptions Section */
 .brand-descriptions-section {
   background: var(--bg-primary);
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-4xl) 0;;
 }
 
 .brand-descriptions-grid {
