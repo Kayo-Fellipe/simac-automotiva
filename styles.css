@@ -974,6 +974,23 @@ body {
     gap: var(--spacing-lg);
 }
 
+/* Maps */
+.maps-container{
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center; 
+    padding: 20px; 
+    background: #011526;
+}
+
+.maps-container h2{
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+
 /* WhatsApp Contact Box - Green theme */
 .contact-whatsapp-box {
     background: linear-gradient(135deg, var(--whatsapp-color), #128c7e);
