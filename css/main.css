@@ -739,7 +739,7 @@ img[loading="lazy"].loaded {
     border: 1px solid rgba(249, 115, 22, 0.4);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-2xl);
-    max-width: 500px;
+    max-width: 1280px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -993,11 +993,11 @@ img[loading="lazy"].loaded {
 
 /* Map Section */
 .maps-container{
-    max-width: 1280px;
     margin: 0 auto;
     text-align: center; 
     padding: 20px; 
     background: #011526;
+    height: 70vh;
 }
 
 .maps-container h2{
@@ -1143,7 +1143,7 @@ img[loading="lazy"].loaded {
 
 .working-hours-card {
     background: white;
-    padding: 25px;
+    padding: 20px;
     border-radius: var(--radius-xl);
     box-shadow: 0 8px 25px rgba(242, 92, 5, 0.1);
     border: 1px solid var(--secondary-color);
