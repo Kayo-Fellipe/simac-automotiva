@@ -992,32 +992,32 @@ img[loading="lazy"].loaded {
 }
 
 /* Map Section */
-.map-section {
+.maps-container{
     max-width: 1280px;
     margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-    background: var(--bg-dark);
+    text-align: center; 
+    padding: 20px; 
+    background: #011526;
 }
 
-.map-section h2 {
+.maps-container h2{
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: var(--text-white);
+    color: #ffffff;
 }
 
-.map-section p {
+.maps-container p{
     font-size: 16px;
-    color: var(--text-white);
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
-.map-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+.map-wrapper {
+    position: relative; 
+    overflow: hidden; 
+    border-radius: 15px; 
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
 }
 
 /* Contact Section */

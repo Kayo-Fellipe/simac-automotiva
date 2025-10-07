@@ -975,33 +975,7 @@ body {
 }
 
 /* Maps */
-.maps-container{
-    max-width: 1280px;
-    margin: 0 auto;
-    text-align: center; 
-    padding: 20px; 
-    background: #011526;
-}
 
-.maps-container h2{
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.maps-container p{
-    font-size: 16px;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-.map-wrapper {
-    position: relative; 
-    overflow: hidden; 
-    border-radius: 15px; 
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
-}
 
 
 /* WhatsApp Contact Box - Green theme */
