@@ -990,6 +990,19 @@ body {
     color: #ffffff;
 }
 
+.maps-container p{
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.map-wrapper {
+    position: relative; 
+    overflow: hidden; 
+    border-radius: 15px; 
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+}
+
 
 /* WhatsApp Contact Box - Green theme */
 .contact-whatsapp-box {
