@@ -546,8 +546,8 @@ img[loading="lazy"].loaded {
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4xl);
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-5xlxl);
     align-items: center;
 }
 
