@@ -283,9 +283,10 @@ img[loading="lazy"].loaded {
 
 .nav {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--spacing-xl);
+    align-items: center;      /* centraliza verticalmente */
+    justify-content: space-between;  /* mantém os itens nas extremidades */
+    height: 70px;             /* define a altura da navbar */
+    padding: 0 10px;          /* espaço interno horizontal */
 }
 
 .nav-list {
