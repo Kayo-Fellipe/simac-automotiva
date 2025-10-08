@@ -269,7 +269,7 @@ img[loading="lazy"].loaded {
 
 .header.scrolled {
     box-shadow: var(--shadow-md);
-    background-color: rgba(255, 255, 255, 0.58);
+    background-color: rgba(255, 255, 255, 0.98);
 }
 
 .nav-logo img {
@@ -520,9 +520,8 @@ img[loading="lazy"].loaded {
 
 /* Hero Section */
 .hero {
-    background: var(--bg-primary);
     padding: calc(var(--spacing-5xl) + 60px) 0 var(--spacing-5xl);
-    min-height: 70vh;
+    min-height: 75vh;
     display: flex;
     align-items: center;
 }
@@ -584,11 +583,14 @@ img[loading="lazy"].loaded {
 
 /* About Section */
 .about-section {
-    min-height: 80vh;
+    min-height: 70vh;
     background-color: var(--bg-secondary);
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #001627;
+    clip-path: polygon(0 0, 100% 35%, 100% 100%, 0 100%);
+    margin-bottom: -1px;
 }
 
 .about-content {
