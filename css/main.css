@@ -522,7 +522,7 @@ img[loading="lazy"].loaded {
 .hero {
     background: var(--bg-primary);
     padding: calc(var(--spacing-5xl) + 60px) 0 var(--spacing-5xl);
-    min-height: 100vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
 }
@@ -532,6 +532,7 @@ img[loading="lazy"].loaded {
     grid-template-columns: 2fr 1fr;
     gap: var(--spacing-5xlxl);
     align-items: center;
+    justify-content: center;
 }
 
 .hero-title {
@@ -583,7 +584,11 @@ img[loading="lazy"].loaded {
 
 /* About Section */
 .about-section {
+    min-height: 80vh;
     background-color: var(--bg-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-content {
@@ -976,11 +981,14 @@ img[loading="lazy"].loaded {
 
 /* Map Section */
 .maps-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
     text-align: center; 
     padding: 20px; 
     background: #011526;
-    height: 70vh;
+    height: 60vh;
 }
 
 .maps-container h2{
@@ -996,11 +1004,11 @@ img[loading="lazy"].loaded {
     margin-bottom: 20px;
 }
 
-.map-wrapper {
-    position: relative; 
-    overflow: hidden; 
-    border-radius: 15px; 
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+.map-wrapper iframe{
+    width: 1280px;                        
+    height: 320px;
+    border:0; 
+    border-radius: 10px;
 }
 
 /* Contact Section */
@@ -1029,7 +1037,7 @@ img[loading="lazy"].loaded {
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.2);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.1);
     transition: all var(--transition-normal);
 }
 
@@ -1085,7 +1093,7 @@ img[loading="lazy"].loaded {
     background: white;
     padding: 30px;
     border-radius: var(--radius-xl);
-    box-shadow: 0 8px 25px rgba(242, 92, 5, 0.1);
+    box-shadow: 0 8px 25px rgba(242, 92, 5, 0.020);
     border: 1px solid var(--secondary-color);
     display: flex;
     flex-direction: column;
@@ -1128,7 +1136,7 @@ img[loading="lazy"].loaded {
     background: white;
     padding: 20px;
     border-radius: var(--radius-xl);
-    box-shadow: 0 8px 25px rgba(242, 92, 5, 0.1);
+    box-shadow: 0 8px 25px rgba(242, 92, 5, 0.020);
     border: 1px solid var(--secondary-color);
     display: flex;
     align-items: flex-start;
@@ -1170,7 +1178,7 @@ img[loading="lazy"].loaded {
     background-color: white;
     padding: var(--spacing-2xl);
     border-radius: var(--radius-xl);
-    box-shadow: 0 8px 25px rgba(242, 92, 5, 0.1);
+    box-shadow: 0 8px 25px rgba(242, 92, 5, 0.020);
     border: 1px solid var(--secondary-color);
     height: fit-content;
 }
